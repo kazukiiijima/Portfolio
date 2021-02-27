@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_02_21_073015) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.text "title"
-    t.text "text"
+    t.text "body"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,11 @@
+<h1>投稿者ページ</h1>
+
+<div>ユーザー名</div>
+	<%= @user.name %>
+<div>投稿一覧</div>
+	<% @posts.each do |post| %>
+		<%= link_to post.title, post_path(post.id) %>
+		<%= post.body %>
+	<% end %>
+
+

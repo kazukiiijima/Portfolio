@@ -1,11 +1,11 @@
-<dvi>投稿一覧ページ</dvi>
+<h1>投稿一覧ページ</h1>
 
 <div>ジャンル一覧検索</div>
 
 <div>新着投稿</div>
 	<% @posts.each do |post| %>
-		<%= post.title %>
-		<%= post.text %>
+		<%= link_to post.title, post_path(post.id)  %>
+		<%= post.body %>
 	<% end %>
 
 <%= link_to "投稿画面へ", new_post_path %>
