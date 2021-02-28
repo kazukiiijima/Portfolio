@@ -12,22 +12,28 @@
   <body>
     <div class="well">
       <% if user_signed_in? %>
-        <div class="col-xs-12 col-md-8">
+        <div class="col-xs-12 col-md-9">
           <%= link_to root_path do %>
             <span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>
           <% end %>
         </div>
-        <div class="col-xs-12 col-md-2">
+        <div class="col-xs-12 col-md-1">
           <%= link_to"マイページ", user_path(current_user.id) %>
         </div>
-        <div class="col-xs-12 col-md-2">
+        <div class="col-xs-12 col-md-1">
+          <%= link_to"投稿ページ", posts_path %>
+        </div>
+        <div class="col-xs-12 col-md-1">
           <%= link_to"ログアウト", destroy_user_session_path, method: :delete %>
         </div>
       <% else %>
-        <div class="col-xs-12 col-md-8">
+        <div class="col-xs-12 col-md-9">
           <%= link_to root_path do %>
             <span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>
           <% end %>
+        </div>
+        <div class="col-xs-12 col-md-1">
+          <%= link_to"投稿ページ", posts_path %>
         </div>
         <div class="col-xs-12 col-md-1">
           <%= link_to"新規登録", new_user_registration_path %>
