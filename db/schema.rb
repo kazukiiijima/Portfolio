@@ -30,7 +30,9 @@ ActiveRecord::Schema.define(version: 2021_02_21_073015) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.string "text"
+    t.text "title"
+    t.text "body"
+    t.string "genre"
   end
 
   create_table "users", force: :cascade do |t|

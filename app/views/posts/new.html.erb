@@ -1,0 +1,18 @@
+<h1>投稿画面</h1>
+
+<%= form_with model: @post, url: posts_path, local: true do |f| %>
+	<div class="field">
+		<%= f.label :title, '動画タイトル' %><br>
+		<%= f.text_field :title %>
+	</div><br>
+	<div class="field">
+		<%= f.label :body, 'ここがオススメ！' %><br>
+	    <%= f.text_area :body %><br>
+	</div><br>
+	<div class="field">
+		<%= f.label :genre, 'ジャンル' %><br>
+		<%= f.select :genre, ['映画とアニメ', '自動車と乗り物', '音楽','ペットと動物','スポーツ','旅行とイベント','ゲーム','ブログ','コメディー','エンターテイメント','ニュースと政治','ハウツーとスタイル','教育','科学と技術'], {include_blank: '---'} %>
+	</div><br>
+	<div><%= f.submit '投稿する' %></div>
+<% end %>
+<%= link_to "一覧に戻る", posts_path %>
