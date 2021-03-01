@@ -19,6 +19,16 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 	end
 
+	def destroy
+		post = Post.find(params[:id])
+		if post.user_id != current_user.id
+    		redirect_to root_path
+    	else
+    		post.destroy
+    		redirect_to user_path(current_user), notice: 'You have destroy book successfully.'
+    	end
+	end
+
 	private
 
 	def post_params

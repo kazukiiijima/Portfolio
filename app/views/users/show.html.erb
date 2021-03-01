@@ -7,4 +7,7 @@
 	<% @posts.each do |post| %>
 		<%= link_to post.title, post_path(post.id) %>
 		<%= post.body %>
+		<% if post.user == current_user %>
+			<%= link_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %>
+		<% end %>
 	<% end %>
