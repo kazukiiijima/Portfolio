@@ -6,6 +6,7 @@
 	<p><%= @post.body %></p><br>
 <div>ジャンル</div><br>
 	<p><%= @post.genre %></p><br>
+
 <div>いいね数: <%= @post.favorites.count %></div>
 	<% if current_user.already_favorite?(@post) %>
 		<%= button_to 'いいねを取り消す', post_favorite_path(@post), method: :delete %>
@@ -15,6 +16,18 @@
 <dev>いいねしたユーザー</dev>
 	<% @post.favorited_users.each do |user| %>
   		<%= user.name %>
+	<% end %>
+
+<div>コメント一覧</div>
+	<% @comments.each do |comment| %>
+		<%= link_to comment.name, user_path(user.id) %>
+		<%= comment.text %>
+	<% end %>
+
+<div><%= form_with model: @comment, url: post_comments_path(@post), local: true do |f| %></div>
+	<%= f.text_field :text %>
+	  <br>
+	  <%= f.submit 'コメントする' %>
 	<% end %>
 
 <%= link_to "一覧に戻る", posts_path %>

@@ -18,6 +18,8 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.find(params[:id])
 		@favorite = Favorite.new
+		@comments = @post.comments
+		@comment = Comment.new
 	end
 
 	def destroy
@@ -35,4 +37,5 @@ class PostsController < ApplicationController
 	def post_params
 		params.require(:post).permit(:title, :body, :genre)
 	end
+
 end
