@@ -20,14 +20,12 @@
 
 <div>コメント一覧</div>
 	<% @comments.each do |comment| %>
-		<%= link_to comment.name, user_path(user.id) %>
-		<%= comment.text %>
+		<%= link_to comment.text, user_path(comment.user.id) %>
 	<% end %>
 
-<div><%= form_with model: @comment, url: post_comments_path(@post), local: true do |f| %></div>
-	<%= f.text_field :text %>
-	  <br>
-	  <%= f.submit 'コメントする' %>
+	<%= form_with(model: [@post, @comment], local: true) do |f| %>
+		<%= f.text_field :text %><br>
+	 	<%= f.submit 'コメントする' %>
 	<% end %>
 
 <%= link_to "一覧に戻る", posts_path %>

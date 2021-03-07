@@ -6,7 +6,8 @@
 	<% @posts.each do |post| %>
 		<%= link_to post.title, post_path(post.id)  %>
 		<%= post.body %>
-		(<%= post.favorited_users.count %>)
+		(いいね数：<%= post.favorited_users.count %>)
+		(コメント数：<%= post.comments.count %>)
 	<% end %>
 
 <%= link_to "投稿画面へ", new_post_path %>
