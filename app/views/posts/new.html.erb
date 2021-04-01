@@ -10,8 +10,8 @@
 	    <%= f.text_area :body %><br>
 	</div><br>
 	<div class="field">
-		<%= f.label :genre, 'ジャンル' %><br>
-		<%= f.select :genre, ['映画とアニメ', '自動車と乗り物', '音楽','ペットと動物','スポーツ','旅行とイベント','ゲーム','ブログ','コメディー','エンターテイメント','ニュースと政治','ハウツーとスタイル','教育','科学と技術'], {include_blank: '---'} %>
+		<%= f.label :genre_id, 'ジャンル' %><br>
+		<%= f.collection_select(:genre_id, @genres, :id, :name, { include_blank: '選択してください'}, { class: 'form-control' , required: true }) %>
 	</div><br>
 	<div><%= f.submit '投稿する' %></div>
 <% end %>

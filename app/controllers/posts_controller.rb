@@ -3,15 +3,22 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :destroy]
 
 	def index
-		@posts = Post.all
+		@genres = Genre.all
+		if params[:genre].blank?
+			@posts = Post.all
+		else
+			@posts = Post.where(genre_id: params[:genre])
+		end
 	end
 
 	def new
 		@post = Post.new
+		@genres = Genre.all
 	end
 
 	def show
 		@post = Post.find(params[:id])
+		@genre = Genre.find(params[:id])
 		@favorite = Favorite.new
 		@comments = @post.comments
 		@comment = Comment.new
@@ -21,7 +28,7 @@ class PostsController < ApplicationController
 		post = Post.new(post_params)
 		post.user_id = current_user.id
 		post.save
-		redirect_to posts_path
+		redirect_to posts_path(post.id)
 	end
 
 	def destroy
@@ -37,7 +44,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :body, :genre)
+		params.require(:post).permit(:title, :body, :genre_id)
 	end
 
 end

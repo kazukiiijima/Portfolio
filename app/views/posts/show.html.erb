@@ -4,8 +4,7 @@
 	<p><%= @post.title %></p><br>
 <div>ここがオススメ！</div><br>
 	<p><%= @post.body %></p><br>
-<div>ジャンル</div><br>
-	<p><%= @post.genre %></p><br>
+
 
 <div>いいね数: <%= @post.favorites.count %></div>
 	<% if current_user.already_favorite?(@post) %>
