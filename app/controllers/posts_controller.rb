@@ -6,8 +6,10 @@ class PostsController < ApplicationController
 		@genres = Genre.all
 		if params[:genre].blank?
 			@posts = Post.all
+			@posts_rank = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
 		else
 			@posts = Post.where(genre_id: params[:genre])
+			@posts_rank = @posts.includes(:favorited_users).limit(3).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
 		end
 	end
 
@@ -18,7 +20,6 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		@genre = Genre.find(params[:id])
 		@favorite = Favorite.new
 		@comments = @post.comments
 		@comment = Comment.new

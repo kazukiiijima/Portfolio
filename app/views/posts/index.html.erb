@@ -13,6 +13,14 @@
 		(コメント数：<%= post.comments.count %>)
 	<% end %>
 
+<div>人気の投稿</div>
+	<% @posts_rank.each do |post_rank| %>
+		<%= post_rank.title %>
+		<%= post_rank.body %>
+		(いいね数：<%= post_rank.favorited_users.count %>)
+		(コメント数：<%= post_rank.comments.count %>)
+	<% end %>
+
 <%= link_to "投稿画面へ", new_post_path %>
 
 
