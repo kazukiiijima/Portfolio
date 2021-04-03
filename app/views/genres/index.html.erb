@@ -1,0 +1,15 @@
+<dev>
+	<p>新規ジャンル登録</p>
+		<%= form_with model: @genre, url: genres_path, local: true do |f| %>
+			<%= f.text_field :name %>
+	    	<%= f.submit '新規登録'%>
+    	<% end %>
+</dev>
+
+<dev>
+	<p>ジャンル一覧</p>
+		<% @genres.each do|genre| %>
+			<%= genre.name %>
+			<%= link_to "削除する", genre_path(genre.id), method: :delete %>
+		<% end %>
+</dev>
