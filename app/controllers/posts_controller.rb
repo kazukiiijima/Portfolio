@@ -5,10 +5,10 @@ class PostsController < ApplicationController
 	def index
 		@genres = Genre.all
 		if params[:genre].blank?
-			@posts = Post.all
+			@posts = Post.all.page(params[:page]).per(5)
 			@posts_rank = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
 		else
-			@posts = Post.where(genre_id: params[:genre])
+			@posts = Post.where(genre_id: params[:genre]).page(params[:page]).per(5)
 			@posts_rank = @posts.includes(:favorited_users).limit(3).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
 		end
 	end

@@ -12,10 +12,11 @@
 		(いいね数：<%= post.favorited_users.count %>)
 		(コメント数：<%= post.comments.count %>)
 	<% end %>
+	<%= paginate @posts %>
 
 <div>人気の投稿</div>
 	<% @posts_rank.each do |post_rank| %>
-		<%= post_rank.title %>
+		<%= link_to post_rank.title, post_path(@posts) %>
 		<%= post_rank.body %>
 		(いいね数：<%= post_rank.favorited_users.count %>)
 		(コメント数：<%= post_rank.comments.count %>)
