@@ -5,22 +5,22 @@
 		<%= link_to genre.name, posts_path(genre: genre.id) %>
 	<% end %>
 
+<div>人気の投稿top3</div>
+	<% @posts_rank.each do |post_rank| %>
+		<%= post_rank.title %><br>
+		<%= post_rank.body %><br>
+		(いいね数：<%= post_rank.favorited_users.count %>)<br>
+		(コメント数：<%= post_rank.comments.count %>)<br>
+	<% end %>
+
 <div>新着投稿</div>
 	<% @posts.each do |post| %>
-		<%= link_to post.title, post_path(post.id)  %>
-		<%= post.body %>
-		(いいね数：<%= post.favorited_users.count %>)
-		(コメント数：<%= post.comments.count %>)
+		<%= link_to post.title, post_path(post.id)  %><br>
+		<%= post.body %><br>
+		(いいね数：<%= post.favorited_users.count %>)<br>
+		(コメント数：<%= post.comments.count %>)<br>
 	<% end %>
 	<%= paginate @posts %>
-
-<div>人気の投稿</div>
-	<% @posts_rank.each do |post_rank| %>
-		<%= link_to post_rank.title, post_path(@posts) %>
-		<%= post_rank.body %>
-		(いいね数：<%= post_rank.favorited_users.count %>)
-		(コメント数：<%= post_rank.comments.count %>)
-	<% end %>
 
 <%= link_to "投稿画面へ", new_post_path %>
 
