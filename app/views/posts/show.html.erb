@@ -15,14 +15,14 @@
 	<% else %>
   		<%= button_to 'いいね', post_favorites_path(@post) %>
 	<% end %>
-<dev>いいねしたユーザー</dev>
+<dev>いいねしたユーザー</dev><br>
 	<% @post.favorited_users.each do |user| %>
-  		<%= user.name %>
+  		<%= link_to user.name, user_path(user.id) %><br>
 	<% end %>
 
 <div>コメント一覧</div>
 	<% @comments.each do |comment| %>
-		<%= link_to comment.text, user_path(comment.user.id) %>
+		<%= link_to comment.text, user_path(comment.user.id) %><br>
 	<% end %>
 
 	<%= form_with(model: [@post, @comment], local: true) do |f| %>
