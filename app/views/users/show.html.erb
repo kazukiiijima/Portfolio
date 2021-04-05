@@ -1,19 +1,32 @@
-<h1>投稿者ページ</h1>
-
-<div>ユーザー名</div>
-	<%= @user.name %>
-	<%= link_to "プロフィールを編集", edit_user_path(@user.id) %>
-<div>投稿一覧</div>
-	<% @posts.each do |post| %>
-		<%= link_to post.title, post_path(post.id) %><br>
-		<%= post.body %><br>
-		<% if post.user == current_user %>
-			<%= link_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %><br>
-		<% end %>
-	<% end %>
-<div>いいねした投稿</div>
-	<% @user.favorited_posts.each do |post| %>
-		<%= post.user.name %><br>
-		<%= link_to post.title, post_path(post.id) %><br>
-		<%= post.body %><br>
-	<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<h1>投稿者ページ</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-5">
+			<h2>ユーザー名</h2>
+				<%= @user.name %>
+				<%= link_to "プロフィールを編集", edit_user_path(@user.id) %>
+		</div>
+		<div class="col-xs-7">
+			<h2>投稿一覧</h2>
+				<% @posts.each do |post| %>
+					<%= link_to post.title, post_path(post.id) %><br>
+					<%= post.body %><br>
+					<% if post.user == current_user %>
+						<%= link_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %><br>
+					<% end %>
+				<% end %>
+		</div>
+		<div class="col-xs-7 col-xs-offset-5">
+			<h2>いいねした投稿</h2>
+				<% @user.favorited_posts.each do |post| %>
+					<%= post.user.name %><br>
+					<%= link_to post.title, post_path(post.id) %><br>
+					<%= post.body %><br>
+				<% end %>
+		</div>
+	</div>
+</div>
