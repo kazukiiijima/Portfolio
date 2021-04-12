@@ -1,38 +1,42 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-3">
-			<h1>投稿一覧ページ</h1>
+<html>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<div>
+			<header>
+				<div>
+					<h1>投稿一覧ページ</h1>
+				</div>
+			</header>
+			<main>
+				<div>
+					<h2>ジャンル一覧検索</h2>
+						<% @genres.each do |genre| %>
+							<%= link_to genre.name, posts_path(genre: genre.id) %><br>
+						<% end %>
+					<h2>人気の投稿top3</h2>
+						<% @posts_rank.each do |post_rank| %>
+							<%= post_rank.title %><br>
+							<%= post_rank.body %><br>
+							(いいね数：<%= post_rank.favorited_users.count %>)<br>
+							(コメント数：<%= post_rank.comments.count %>)<br>
+						<% end %>
+				</div>
+				<div>
+					<h2>新着投稿</h2>
+						<% @posts.each do |post| %>
+							<%= link_to post.title, post_path(post.id)  %><br>
+							<%= post.body %><br>
+							(いいね数：<%= post.favorited_users.count %>)<br>
+							(コメント数：<%= post.comments.count %>)<br>
+						<% end %>
+						<%= paginate @posts %>
+				</div>
+					<%= link_to "投稿画面へ", new_post_path %>
+			</main>
+			<footer>
+			</footer>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-5">
-			<h2>ジャンル一覧検索</h2>
-				<% @genres.each do |genre| %>
-					<%= link_to genre.name, posts_path(genre: genre.id) %><br>
-				<% end %>
-		</div>
-		<div class="col-xs-7">
-			<h2>人気の投稿top3</h2>
-				<% @posts_rank.each do |post_rank| %>
-					<%= post_rank.title %><br>
-					<%= post_rank.body %><br>
-					(いいね数：<%= post_rank.favorited_users.count %>)<br>
-					(コメント数：<%= post_rank.comments.count %>)<br>
-				<% end %>
-		</div>
-		<div class="col-xs-7 col-xs-offset-5">
-			<h2>新着投稿</h2>
-				<% @posts.each do |post| %>
-					<%= link_to post.title, post_path(post.id)  %><br>
-					<%= post.body %><br>
-					(いいね数：<%= post.favorited_users.count %>)<br>
-					(コメント数：<%= post.comments.count %>)<br>
-				<% end %>
-				<%= paginate @posts %>
-		</div>
-			<%= link_to "投稿画面へ", new_post_path %>
-	</div>
-</div>
-
-
-
+	</body>
+</html>
