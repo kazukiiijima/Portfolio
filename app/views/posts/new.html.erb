@@ -1,27 +1,36 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-3">
-			<h1>投稿画面</h1>
+<html>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<div>
+			<header>
+				<div>
+					<h1>投稿画面</h1>
+				</div>
+			</header>
+			<main>
+				<div>
+					<%= form_with model: @post, url: posts_path, local: true do |f| %>
+						<div class="field">
+							<%= f.label :title, '動画タイトル' %><br>
+							<%= f.text_field :title %>
+						</div><br>
+						<div class="field">
+							<%= f.label :body, 'ここがオススメ！' %><br>
+						    <%= f.text_area :body %><br>
+						</div><br>
+						<div class="field">
+							<%= f.label :genre_id, 'ジャンル' %><br>
+							<%= f.collection_select(:genre_id, @genres, :id, :name, { include_blank: '選択してください'}, { class: 'form-control' , required: true }) %>
+						</div><br>
+						<div><%= f.submit '投稿する' %></div>
+					<% end %>
+				</div>
+					<%= link_to "一覧に戻る", posts_path %>
+			</main>
+			<footer>
+			</footer>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-3">
-			<%= form_with model: @post, url: posts_path, local: true do |f| %>
-				<div class="field">
-					<%= f.label :title, '動画タイトル' %><br>
-					<%= f.text_field :title %>
-				</div><br>
-				<div class="field">
-					<%= f.label :body, 'ここがオススメ！' %><br>
-				    <%= f.text_area :body %><br>
-				</div><br>
-				<div class="field">
-					<%= f.label :genre_id, 'ジャンル' %><br>
-					<%= f.collection_select(:genre_id, @genres, :id, :name, { include_blank: '選択してください'}, { class: 'form-control' , required: true }) %>
-				</div><br>
-				<div><%= f.submit '投稿する' %></div>
-			<% end %>
-		</div>
-	</div>
-			<%= link_to "一覧に戻る", posts_path %>
-</div>
+	</body>
+</html>

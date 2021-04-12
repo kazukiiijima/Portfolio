@@ -1,17 +1,26 @@
-<div class="container">
-	<div class="row">
-		<div class="col-xs-3">
-			<h1>プロフィール編集画面</h1>
+<html>
+	<head>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<div>
+			<header>
+				<div>
+					<h1>プロフィール編集画面</h1>
+				</div>
+			</header>
+			<main>
+				<div>
+					<%= form_with model: @user, url: user_path, local: true do |f| %>
+						<p>ユーザー名</p>
+							<%= f.text_field :name %>
+						<p><%= f.submit '変更を保存' %></p>
+					<% end %>
+				</div>
+			</main>
+			<footer>
+			</footer>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-3">
-			<%= form_with model: @user, url: user_path, local: true do |f| %>
-				<p>ユーザー名</p>
-					<%= f.text_field :name %>
-				<p><%= f.submit '変更を保存' %></p>
-			<% end %>
-		</div>
-	</div>
-</div>
+	</body>
+</html>
 
