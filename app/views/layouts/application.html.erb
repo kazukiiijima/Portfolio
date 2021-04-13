@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <title>Portfolio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="/assets/stylesheets/application.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div class="well">
-      <% if user_signed_in? %>
-        <div class="col-xs-12 col-md-9">
-          <%= link_to root_path do %>
-            <span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>
+    <header>
+      <h1 class="app_title">
+        <%= link_to"Hello! Youtuber", root_path  %>
+      </h1>
+      <nav>
+        <ul class="nav-list">
+          <% if user_signed_in? %>
+            <a class="nav-list-item">
+              <%= link_to"マイページ", user_path(current_user.id) %>
+            </a>
+            <a class="nav-list-item">
+              <%= link_to"投稿ページ", posts_path %>
+            </a>
+            <a class="nav-list-item">
+              <%= link_to"ログアウト", destroy_user_session_path, method: :delete %>
+            </a>
+          <% else %>
+            <a class="nav-list-item">
+              <%= link_to"投稿ページ", posts_path %>
+            </a>
+            <a class="nav-list-item">
+              <%= link_to"新規登録", new_user_registration_path %>
+            </a>
+            <a class="nav-list-item">
+              <%= link_to"ログイン", new_user_session_path %>
+            </a>
           <% end %>
-        </div>
-        <div class="col-xs-12 col-md-1">
-          <%= link_to"マイページ", user_path(current_user.id) %>
-        </div>
-        <div class="col-xs-12 col-md-1">
-          <%= link_to"投稿ページ", posts_path %>
-        </div>
-        <div class="col-xs-12 col-md-1">
-          <%= link_to"ログアウト", destroy_user_session_path, method: :delete %>
-        </div>
-      <% else %>
-        <div class="col-xs-12 col-md-9">
-          <%= link_to root_path do %>
-            <span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>
-          <% end %>
-        </div>
-        <div class="col-xs-12 col-md-1">
-          <%= link_to"投稿ページ", posts_path %>
-        </div>
-        <div class="col-xs-12 col-md-1">
-          <%= link_to"新規登録", new_user_registration_path %>
-        </div>
-        <div class="col-xs-12 col-md-1">
-          <%= link_to"ログイン", new_user_session_path %>
-        </div>
-      <% end %>
+        </ul>
+      </nav>
+
+    </header>
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/application.js"></script>
     <%= yield %>
   </body>
 </html>

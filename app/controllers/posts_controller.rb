@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 		post = Post.new(post_params)
 		post.user_id = current_user.id
 		post.save
-		redirect_to posts_path(post.id)
+		redirect_to posts_path
 	end
 
 	def destroy
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :body, :genre_id)
+		params.require(:post).permit(:title, :body, :genre_id, :image)
 	end
 
 end

@@ -1,15 +1,16 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<title>Hello Youtuber</title>
 	</head>
 	<body>
 		<div>
 			<header>
+			</header>
+			<main>
 				<div>
 					<h1>投稿一覧ページ</h1>
 				</div>
-			</header>
-			<main>
 				<div>
 					<h2>ジャンル一覧検索</h2>
 						<% @genres.each do |genre| %>
@@ -17,6 +18,7 @@
 						<% end %>
 					<h2>人気の投稿top3</h2>
 						<% @posts_rank.each do |post_rank| %>
+							<%= attachment_image_tag post_rank, :image, :fill, 60, 60 %>
 							<%= post_rank.title %><br>
 							<%= post_rank.body %><br>
 							(いいね数：<%= post_rank.favorited_users.count %>)<br>
@@ -26,6 +28,7 @@
 				<div>
 					<h2>新着投稿</h2>
 						<% @posts.each do |post| %>
+							<%= attachment_image_tag post, :image, :fill, 60, 60 %>
 							<%= link_to post.title, post_path(post.id)  %><br>
 							<%= post.body %><br>
 							(いいね数：<%= post.favorited_users.count %>)<br>

@@ -12,15 +12,18 @@
 			<main>
 				<div>
 					<%= form_with model: @post, url: posts_path, local: true do |f| %>
-						<div class="field">
+						<div>
+							<%= f.attachment_field :image %><br>
+						</div>
+						<div>
 							<%= f.label :title, '動画タイトル' %><br>
 							<%= f.text_field :title %>
 						</div><br>
-						<div class="field">
+						<div>
 							<%= f.label :body, 'ここがオススメ！' %><br>
 						    <%= f.text_area :body %><br>
 						</div><br>
-						<div class="field">
+						<div>
 							<%= f.label :genre_id, 'ジャンル' %><br>
 							<%= f.collection_select(:genre_id, @genres, :id, :name, { include_blank: '選択してください'}, { class: 'form-control' , required: true }) %>
 						</div><br>
