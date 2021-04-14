@@ -1,45 +1,67 @@
 <html>
 	<head>
-		<meta charset="utf-8" />
-		<title>Hello Youtuber</title>
+		<title>Portfolio</title>
+	    <%= csrf_meta_tags %>
+	    <%= csp_meta_tag %>
+	    <link rel="stylesheet" href="/assets/stylesheets/application.css">
+	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
 	<body>
 		<div>
-			<header>
-			</header>
-			<main>
-				<div>
-					<h1>投稿一覧ページ</h1>
-				</div>
-				<div>
-					<h2>ジャンル一覧検索</h2>
-						<% @genres.each do |genre| %>
-							<%= link_to genre.name, posts_path(genre: genre.id) %><br>
-						<% end %>
-					<h2>人気の投稿top3</h2>
-						<% @posts_rank.each do |post_rank| %>
-							<%= attachment_image_tag post_rank, :image, :fill, 60, 60 %>
-							<%= post_rank.title %><br>
-							<%= post_rank.body %><br>
-							(いいね数：<%= post_rank.favorited_users.count %>)<br>
-							(コメント数：<%= post_rank.comments.count %>)<br>
-						<% end %>
-				</div>
-				<div>
-					<h2>新着投稿</h2>
-						<% @posts.each do |post| %>
-							<%= attachment_image_tag post, :image, :fill, 60, 60 %>
-							<%= link_to post.title, post_path(post.id)  %><br>
-							<%= post.body %><br>
-							(いいね数：<%= post.favorited_users.count %>)<br>
-							(コメント数：<%= post.comments.count %>)<br>
-						<% end %>
-						<%= paginate @posts %>
-				</div>
-					<%= link_to "投稿画面へ", new_post_path %>
-			</main>
-			<footer>
-			</footer>
+			<div class="main clearfix">
+				<selection >
+					<div class="post_index_genre">
+						<h2 class="post_index_genre_title">
+							ジャンルから検索
+						</h2>
+						<div class="post_index_genre_select">
+							<% @genres.each do |genre| %>
+								<%= link_to genre.name, posts_path(genre: genre.id) %><br>
+							<% end %>
+							<%= paginate @genres %>
+						</div>
+					</div>
+				</selection>
+				<selection>
+					<div class="post_index_popular">
+						<h2 class="post_index_popular_title">
+							人気の投稿top3
+						</h2>
+						<div class="post_index_popular_item">
+							<% @posts_rank.each do |post_rank| %>
+								<%= attachment_image_tag post_rank, :image, :fill, 60, 60 %><br>
+								<%= post_rank.title %><br>
+								<%= post_rank.body %><br>
+								(いいね数：<%= post_rank.favorited_users.count %>)<br>
+								(コメント数：<%= post_rank.comments.count %>)<br>
+							<% end %>
+						</div>
+					</div>
+				</selection>
+				<selection>
+					<div class="post_index_arrival">
+						<h2 class="post_index_arrival_title">
+							新着投稿
+						</h2>
+						<div class="post_index_arrival_item">
+							<% @posts.each do |post| %>
+								<%= attachment_image_tag post, :image, :fill, 60, 60 %>
+								<%= link_to post.title, post_path(post.id)  %><br>
+								<%= post.body %><br>
+								(いいね数：<%= post.favorited_users.count %>)<br>
+								(コメント数：<%= post.comments.count %>)<br>
+							<% end %>
+							<%= paginate @posts %>
+						</div>
+					</div>
+				</selection>
+				<selection>
+					<div class="post_botton">
+						<%= link_to "投稿画面へ", new_post_path %>
+					</div>
+				</selection>
+			</div>
 		</div>
 	</body>
 </html>

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :destroy]
 
 	def index
-		@genres = Genre.all
+		@genres = Genre.all.page(params[:page]).per(5)
 		if params[:genre].blank?
 			@posts = Post.all.page(params[:page]).per(5)
 			@posts_rank = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
