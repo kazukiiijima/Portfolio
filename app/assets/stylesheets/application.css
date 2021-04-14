@@ -13,3 +13,130 @@
  *= require_tree .
  *= require_self
  */
+
+@charset "UTF-8";
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header {
+  width: 90%;
+  padding: 15px 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.app_title {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+}
+
+.nav-list-item {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.top_text {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.top_botton {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.top_botton_item {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.main {
+   width: 90%;
+  padding: 15px 0;
+  margin: 0 auto;
+}
+
+.post_index_genre {
+  width: 200px;
+  height: auto;
+  margin: 0 20px;
+  background-color: red;
+  float: left;
+}
+
+.post_index_genre_title {
+  text-align: center;
+  padding: 0 auto;
+  background-color: blue;
+}
+
+.post_index_genre_select {
+  display: inline-block;
+  padding-left: 30px;
+  background-color: green;
+}
+
+.post_index_popular {
+  width: 400px;
+  height: auto;
+  margin: 0 20px;
+  background-color: yellow;
+  float: left;
+}
+
+.post_index_popular_title {
+  text-align: center;
+  padding: 0 auto;
+  background-color: blue;
+}
+
+.post_index_popular_item{
+  text-align: center;
+  padding: 0 auto;
+  background-color: green;
+}
+
+.post_index_arrival {
+  width: 400px;
+  height: auto;
+  margin: 0 20px;
+  background-color: yellow;
+  float: left;
+}
+
+.post_index_arrival_title {
+  text-align: center;
+  padding: 0 auto;
+  background-color: blue;
+}
+
+.post_index_arrival_item {
+  text-align: center;
+  padding: 0 auto;
+  background-color: green;
+}
+
+.post_botton {
+  text-align: center;
+  width: 200px;
+  height: auto;
+  margin: 20px;
+  background-color: yellow;
+}

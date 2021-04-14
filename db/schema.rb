@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_053825) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "genre_id"
+    t.string "image_id"
     t.text "title"
     t.text "body"
   end

@@ -13,6 +13,7 @@
 				<div>
 					<h2>投稿者</h2>
 					<P><%= link_to @post.user.name, user_path(@post.user_id) %></P>
+						<dev><%= attachment_image_tag @post, :image, :fill, 60, 60 %></dev>
 						<d1v>Youtuber名</d1v><br>
 							<p><%= @post.title %></p><br>
 						<div>ここがオススメ！</div><br>

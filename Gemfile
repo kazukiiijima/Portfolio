@@ -64,3 +64,5 @@ gem 'devise'
 gem "pry-byebug"
 gem 'kaminari'
 gem "jquery-rails"
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
