@@ -1,50 +1,90 @@
 <html>
 	<head>
-		<meta charset="utf-8" />
+		<title>Portfolio</title>
+	    <%= csrf_meta_tags %>
+	    <%= csp_meta_tag %>
+	    <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
+	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
 	<body>
 		<div>
-			<header>
-				<div>
-					<h1>投稿詳細</h1>
-				</div>
-			</header>
-			<main>
-				<div>
-					<h2>投稿者</h2>
-					<P><%= link_to @post.user.name, user_path(@post.user_id) %></P>
-						<dev><%= attachment_image_tag @post, :image, :fill, 60, 60 %></dev>
-						<d1v>Youtuber名</d1v><br>
-							<p><%= @post.title %></p><br>
-						<div>ここがオススメ！</div><br>
-							<p><%= @post.body %></p><br>
-						<div>ジャンル</div>
-							<p><%= @post.genre.name %></p>
-				</div>
-				<div>
-					<h2>いいね数: <%= @post.favorites.count %></h2><br>
-						<% if current_user.already_favorited?(@post) %>
-							<%= button_to 'いいねを取り消す', post_favorite_path(@post), method: :delete %>
-						<% else %>
-					  		<%= button_to 'いいね', post_favorites_path(@post) %>
-						<% end %>
-					<h2>いいねしたユーザー</h2><br>
-						<% @post.favorited_users.each do |user| %>
-					  		<%= link_to user.name, user_path(user.id) %><br>
-						<% end %>
-				</div>
-				<div>
-					<h2>コメント一覧</h2>
-						<% @comments.each do |comment| %>
-							<%= link_to comment.text, user_path(comment.user.id) %><br>
-						<% end %>
-						<%= form_with(model: [@post, @comment], local: true) do |f| %>
-							<%= f.text_field :text %><br>
-						 	<%= f.submit 'コメントする' %>
-						<% end %>
-				</div>
-					<%= link_to "一覧に戻る", posts_path %>
-			</main>
+			<div class="post_show_main clearfix">
+				<selection >
+					<div class="post_show">
+						<div class="post_show_image">
+							<%= attachment_image_tag @post, :image, :fill, 400, 400 %>
+						</div>
+						<h3 class="post_show_title">
+							投稿者<br>
+						</h3>
+							<div class="post_show_item">
+								<%= link_to @post.user.name, user_path(@post.user_id) %>
+							</div>
+						<h3 class="post_show_title">
+							Youtuber名<br>
+						</h3>
+							<div class="post_show_item">
+								<%= @post.title %>
+							</div>
+						<h3 class="post_show_title">
+							ここがオススメ！<br>
+						</h3>
+							<div class="post_show_item">
+								<%= @post.body %>
+							</div>
+						<h3 class="post_show_title">
+							ジャンル<br>
+						</h3>
+							<div class="post_show_item">
+								<%= @post.genre.name %>
+							</div>
+					</div>
+				</selection>
+				<selection >
+					<div class="post_favolite">
+						<div class="post_favolite_count">
+							<h2>いいね数: <%= @post.favorites.count %></h2><br>
+							<% if current_user.already_favorited?(@post) %>
+								<%= button_to 'いいねを取り消す', post_favorite_path(@post), method: :delete %>
+							<% else %>
+						  		<%= button_to 'いいね', post_favorites_path(@post) %>
+							<% end %>
+						</div>
+						<div class="post_favolite_count_name">
+							<h2>いいねしたユーザー</h2><br>
+							<% @post.favorited_users.each do |user| %>
+						  		<%= link_to user.name, user_path(user.id) %><br>
+							<% end %>
+						</div>
+					</div>
+				</selection>
+				<selection >
+					<div class="post_comment">
+						<div class="post_comment_post">
+							<h2 class="post_comment_post_title">
+								コメント投稿
+							</h2>
+							<div class="post_comment_post_item">
+								<%= form_with(model: [@post, @comment], local: true) do |f| %>
+										<%= f.text_area :text %><br>
+									 	<%= f.submit 'コメントする' %>
+									<% end %>
+							</div>
+						</div>
+						<div class="post_comment_all">
+							<h2>コメント一覧</h2>
+								<% @comments.each do |comment| %>
+									<%= link_to comment.text, user_path(comment.user.id) %><br>
+								<% end %>
+						</div>
+				</selection>
+				<selection >
+						<div class="post_show_back">
+							<%= link_to "一覧に戻る", posts_path %>
+						</div>
+				</selection>
+			</div>
 		</div>
 	<footer>
 	</footer>

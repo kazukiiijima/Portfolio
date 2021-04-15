@@ -140,3 +140,91 @@ header {
   margin: 20px;
   background-color: yellow;
 }
+
+.post_show_main {
+  width: 90%;
+  padding: 15px 0;
+  margin: 0 auto;
+}
+
+.post_show {
+  width: 500px;
+  height: auto;
+  margin: 0 20px;
+  background-color: red;
+  float: left;
+}
+
+.post_show_image {
+  text-align: center;
+  padding: 10px;
+  background-color: blue;
+}
+
+.post_show_title {
+  padding: 0 auto;
+  background-color: green;
+}
+
+.post_show_item {
+  padding: 0 auto;
+  background-color: yellow;
+}
+
+.post_favolite {
+  width: 300px;
+  height: auto;
+  margin: 0 20px;
+  background-color: red;
+  float: left;
+}
+
+.post_favolite_count {
+  width: 300px;
+  height: auto;
+  background-color: blue;
+}
+
+.post_favolite_count_name {
+  width: 300px;
+  height: auto;
+  background-color: green;
+}
+
+.post_comment {
+  width: 300px;
+  height: auto;
+  margin: 0 20px;
+  background-color: red;
+  float: left;
+}
+
+.post_comment_post {
+  width: 300px;
+  height: auto;
+  background-color: blue;
+}
+
+.post_comment_post_title {
+  width: 300px;
+  height: auto;
+  background-color: green;
+}
+
+.post_comment_post_item {
+  text-align: center;
+  padding: 10px;
+  background-color: yellow;
+}
+
+.post_comment_all {
+  width: 300px;
+  height: auto;
+  background-color: blue;
+}
+
+.post_show_back {
+  text-align: center;
+  padding: 10px;
+  background-color: yellow;
+}

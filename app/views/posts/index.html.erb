@@ -46,7 +46,7 @@
 						</h2>
 						<div class="post_index_arrival_item">
 							<% @posts.each do |post| %>
-								<%= attachment_image_tag post, :image, :fill, 60, 60 %>
+								<%= attachment_image_tag post, :image, :fill, 60, 60 %><br>
 								<%= link_to post.title, post_path(post.id)  %><br>
 								<%= post.body %><br>
 								(いいね数：<%= post.favorited_users.count %>)<br>
