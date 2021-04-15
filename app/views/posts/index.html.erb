@@ -3,7 +3,7 @@
 		<title>Portfolio</title>
 	    <%= csrf_meta_tags %>
 	    <%= csp_meta_tag %>
-	    <link rel="stylesheet" href="/assets/stylesheets/application.css">
+	    <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
 	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
@@ -46,7 +46,7 @@
 						</h2>
 						<div class="post_index_arrival_item">
 							<% @posts.each do |post| %>
-								<%= attachment_image_tag post, :image, :fill, 60, 60 %>
+								<%= attachment_image_tag post, :image, :fill, 60, 60 %><br>
 								<%= link_to post.title, post_path(post.id)  %><br>
 								<%= post.body %><br>
 								(いいね数：<%= post.favorited_users.count %>)<br>
@@ -63,5 +63,7 @@
 				</selection>
 			</div>
 		</div>
+		<script type="text/javascript" src="app/assets/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="app/assets/javascripts/application.js"></script>
 	</body>
 </html>
