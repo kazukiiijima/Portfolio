@@ -1,40 +1,63 @@
 <html>
 	<head>
-		<meta charset="utf-8" />
+		<title>Portfolio</title>
+	    <%= csrf_meta_tags %>
+	    <%= csp_meta_tag %>
+	    <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
+	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
 	<body>
 		<div>
-			<header>
-				<div>
-					<h1>投稿者ページ</h1>
-				</div>
-			</header>
-			<main>
-				<div>
-					<h2>ユーザー名</h2>
-						<%= @user.name %>
-						<%= link_to "プロフィールを編集", edit_user_path(@user.id) %>
-				</div>
-				<div>
-					<h2>投稿一覧</h2>
+			<div class="user_show_main clearfix">
+				<selection>
+					<div class="user_show_user">
+						<h2 class="user_show_user_title">
+							ユーザー
+						</h2>
+						<div class="user_show_user_item">
+							<%= @user.name %>
+						</div>
+						<div class="user_show_user_edit">
+							<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %>
+						</div>
+					</div>
+				</selection>
+				<selection>
+					<div class="user_show_post">
+						<h2 class="user_show_post_title">
+							過去の投稿
+						</h2>
 						<% @posts.each do |post| %>
-							<%= attachment_image_tag post, :image, :fill, 60, 60 %>
-							<%= link_to post.title, post_path(post.id) %><br>
-							<%= post.body %><br>
-							<% if post.user == current_user %>
-								<%= link_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %><br>
-							<% end %>
+							<div class="user_show_post_item">
+								<%= attachment_image_tag post, :image, :fill, 120, 120 %><br>
+								<%= post.title %><br>
+								<%= post.body %><br>
+								<%= button_to "投稿詳細を見る", post_path(post.id), method: :get %><br>
+								<% if post.user == current_user %>
+									<%= button_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %><b>
+								<% end %>
+							</div>
 						<% end %>
-				</div>
-				<div>
-					<h2>いいねした投稿</h2>
+					</div>
+				</selection>
+				<selection>
+					<div class="user_show_favorite">
+						<h2 class="user_show_favorite_title">
+							いいねした投稿
+						</h2>
 						<% @user.favorited_posts.each do |post| %>
-							<%= post.user.name %><br>
-							<%= link_to post.title, post_path(post.id) %><br>
-							<%= post.body %><br>
+							<div class="user_show_favorite_item">
+								<%= attachment_image_tag post, :image, :fill, 120, 120 %><br>
+								<%= post.user.name %><br>
+								<%= post.title %><br>
+								<%= post.body %><br>
+								<%= button_to "投稿を見にいく", post_path(post.id), method: :get %><br>
+							</div>
 						<% end %>
-				</div>
-			</main>
+					</div>
+				</selection>
+			</div>
 			<footer>
 			</footer>
 		</div>

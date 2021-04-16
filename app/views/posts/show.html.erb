@@ -10,7 +10,7 @@
 	<body>
 		<div>
 			<div class="post_show_main clearfix">
-				<selection >
+				<selection>
 					<div class="post_show">
 						<div class="post_show_image">
 							<%= attachment_image_tag @post, :image, :fill, 400, 400 %>
@@ -41,7 +41,7 @@
 							</div>
 					</div>
 				</selection>
-				<selection >
+				<selection>
 					<div class="post_favolite">
 						<div class="post_favolite_count">
 							<h2>いいね数: <%= @post.favorites.count %></h2><br>
@@ -59,7 +59,7 @@
 						</div>
 					</div>
 				</selection>
-				<selection >
+				<selection>
 					<div class="post_comment">
 						<div class="post_comment_post">
 							<h2 class="post_comment_post_title">
@@ -79,7 +79,7 @@
 								<% end %>
 						</div>
 				</selection>
-				<selection >
+				<selection>
 						<div class="post_show_back">
 							<%= link_to "一覧に戻る", posts_path %>
 						</div>

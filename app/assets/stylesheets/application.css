@@ -74,7 +74,7 @@ header {
 }
 
 .post_index_genre {
-  width: 200px;
+  width: 300px;
   height: auto;
   margin: 0 20px;
   background-color: red;
@@ -109,8 +109,10 @@ header {
 
 .post_index_popular_item{
   text-align: center;
-  padding: 0 auto;
-  background-color: green;
+  width: 250px;
+  margin: 10px auto;
+  background-color: white;
+  border: 3px solid black;
 }
 
 .post_index_arrival {
@@ -129,14 +131,15 @@ header {
 
 .post_index_arrival_item {
   text-align: center;
-  padding: 0 auto;
-  background-color: green;
+  width: 250px;
+  margin: 10px auto;
+  background-color: white;
+  border: 3px solid black;
 }
 
 .post_botton {
   text-align: center;
   width: 200px;
-  height: auto;
   margin: 20px;
   background-color: yellow;
 }
@@ -224,6 +227,128 @@ header {
 }
 
 .post_show_back {
+  text-align: center;
+  padding: 10px;
+  background-color: yellow;
+}
+
+.post_new {
+  width: 90%;
+  padding: 30px 0;
+  margin: 0 auto;
+  background-color: red;
+}
+
+.post_new_item {
+  text-align: center;
+  padding: 10px;
+  background-color: blue;
+}
+
+.post_show_back {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: yellow;
+}
+
+.user_show_main {
+  width: 90%;
+  padding: 15px 0;
+  margin: 0 auto;
+}
+
+.user_show_user {
+  width: 300px;
+  height: auto;
+  margin: 0 20px;
+  background-color: red;
+  float: left;
+}
+
+.user_show_user_title {
+  text-align: center;
+  width: 300px;
+  height: auto;
+  background-color: blue;
+}
+
+.user_show_user_item {
+  text-align: center;
+  padding: 10px;
+  background-color: yellow;
+}
+
+.user_show_user_edit {
+  text-align: center;
+  padding: 10px;
+  background-color: green;
+}
+
+.user_show_post {
+  width: 300px;
+  height: auto;
+  margin: 0 20px;
+  background-color: red;
+  float: left;
+}
+
+.user_show_post_title {
+  text-align: center;
+  width: 300px;
+  height: auto;
+  background-color: blue;
+}
+
+.user_show_post_item {
+  text-align: center;
+  width: 250px;
+  margin: 10px auto;
+  background-color: white;
+  border: 3px solid black;
+}
+
+.user_show_favorite {
+  width: 300px;
+  height: auto;
+  margin: 0 20px;
+  background-color: red;
+  float: left;
+}
+
+.user_show_favorite_title {
+  text-align: center;
+  width: 300px;
+  height: auto;
+  background-color: blue;
+}
+
+.user_show_favorite_item {
+  text-align: center;
+  width: 250px;
+  margin: 10px auto;
+  background-color: white;
+  border: 3px solid black;
+}
+
+.user_edit_main {
+  width: 90%;
+  padding: 15px 0;
+  margin: 0 auto;
+}
+
+.user_edit_user {
+  text-align: center;
+  padding: 10px;
+  background-color: red;
+}
+
+.user_edit_user_title {
+  text-align: center;
+  background-color: blue;
+}
+
+.user_edit_user_item {
   text-align: center;
   padding: 10px;
   background-color: yellow;
