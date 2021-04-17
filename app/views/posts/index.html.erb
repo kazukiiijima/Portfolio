@@ -9,61 +9,53 @@
 	</head>
 	<body>
 		<div>
-			<div class="main clearfix">
-				<selection >
-					<div class="post_index_genre">
-						<h2 class="post_index_genre_title">
+			<div class="flex_main-box">
+					<div class="flex_main-box_item">
+						<h2 class="post_main-box_title">
 							ジャンルから検索
 						</h2>
-						<div class="post_index_genre_select">
+						<div class="post_genre_item">
 							<% @genres.each do |genre| %>
 								<%= link_to genre.name, posts_path(genre: genre.id) %><br>
 							<% end %>
-							<%= paginate @genres %>
+						</div>
+						<div class="post_botton">
+							<%= link_to "投稿画面へ", new_post_path, method: :get %>
 						</div>
 					</div>
-				</selection>
-				<selection>
-					<div class="post_index_popular">
-						<h2 class="post_index_popular_title">
-							人気の投稿top3
-						</h2>
-						<div class="post_index_popular_item">
+					<div class="flex_main-box_item">
+							<h2 class="post_main-box_title">
+								人気の投稿top3
+							</h2>
 							<% @posts_rank.each do |post_rank| %>
-								<%= attachment_image_tag post_rank, :image, :fill, 60, 60 %><br>
-								<%= post_rank.title %><br>
-								<%= post_rank.body %><br>
-								(いいね数：<%= post_rank.favorited_users.count %>)<br>
-								(コメント数：<%= post_rank.comments.count %>)<br>
+								<div class="post_index_item">
+									<%= attachment_image_tag post_rank, :image, :fill, 120, 120 %><br>
+									<%= post_rank.title %><br>
+									<%= post_rank.body %><br>
+									(いいね数：<%= post_rank.favorited_users.count %>)<br>
+									(コメント数：<%= post_rank.comments.count %>)<br>
+								</div>
 							<% end %>
-						</div>
 					</div>
-				</selection>
-				<selection>
-					<div class="post_index_arrival">
-						<h2 class="post_index_arrival_title">
+					<div class="flex_main-box_item">
+						<h2 class="post_main-box_title">
 							新着投稿
 						</h2>
-						<div class="post_index_arrival_item">
-							<% @posts.each do |post| %>
-								<%= attachment_image_tag post, :image, :fill, 60, 60 %><br>
-								<%= link_to post.title, post_path(post.id)  %><br>
+						<% @posts.each do |post| %>
+							<div class="post_index_item">
+								<%= attachment_image_tag post, :image, :fill, 120, 120 %><br>
+								<%= post.title %><br>
 								<%= post.body %><br>
 								(いいね数：<%= post.favorited_users.count %>)<br>
 								(コメント数：<%= post.comments.count %>)<br>
-							<% end %>
-							<%= paginate @posts %>
-						</div>
+								<%= button_to "詳細", post_path(post.id), method: :get %><br>
+							</div>
+						<% end %>
+						<%= paginate @posts %>
 					</div>
-				</selection>
-				<selection>
-					<div class="post_botton">
-						<%= link_to "投稿画面へ", new_post_path %>
-					</div>
-				</selection>
 			</div>
 		</div>
 		<script type="text/javascript" src="app/assets/javascripts/jquery.min.js"></script>
-    <script type="text/javascript" src="app/assets/javascripts/application.js"></script>
+    	<script type="text/javascript" src="app/assets/javascripts/application.js"></script>
 	</body>
 </html>

@@ -1,36 +1,44 @@
 <html>
 	<head>
-		<meta charset="utf-8" />
+		<title>Portfolio</title>
+	    <%= csrf_meta_tags %>
+	    <%= csp_meta_tag %>
+	    <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
+	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
 	<body>
 		<div>
-			<header>
-				<div>
-					<h1>投稿画面</h1>
-				</div>
-			</header>
 			<main>
-				<div>
-					<%= form_with model: @post, url: posts_path, local: true do |f| %>
-						<div>
-							<%= f.attachment_field :image %><br>
-						</div>
-						<div>
-							<%= f.label :title, '動画タイトル' %><br>
-							<%= f.text_field :title %>
-						</div><br>
-						<div>
-							<%= f.label :body, 'ここがオススメ！' %><br>
-						    <%= f.text_area :body %><br>
-						</div><br>
-						<div>
-							<%= f.label :genre_id, 'ジャンル' %><br>
-							<%= f.collection_select(:genre_id, @genres, :id, :name, { include_blank: '選択してください'}, { class: 'form-control' , required: true }) %>
-						</div><br>
-						<div><%= f.submit '投稿する' %></div>
-					<% end %>
-				</div>
-					<%= link_to "一覧に戻る", posts_path %>
+				<selection>
+					<div class="post_new">
+						<%= form_with model: @post, url: posts_path, local: true do |f| %>
+							<div class="post_new_item">
+								<%= f.attachment_field :image %><br>
+							</div>
+							<div class="post_new_item">
+								<%= f.label :title, '動画タイトル' %><br>
+								<%= f.text_field :title %><br>
+							</div>
+							<div class="post_new_item">
+								<%= f.label :body, 'ここがオススメ！' %><br>
+							    <%= f.text_area :body %><br>
+							</div>
+							<div class="post_new_item">
+								<%= f.label :genre_id, 'ジャンル' %><br>
+								<%= f.collection_select(:genre_id, @genres, :id, :name, { include_blank: '選択してください'}, { class: 'form-control' , required: true }) %><br>
+							</div>
+							<div class="post_new_item">
+								<%= f.submit '投稿する' %>
+							</div>
+						<% end %>
+					</div>
+				</selection>
+				<selection>
+					<div class="post_show_back">
+						<%= link_to "一覧に戻る", posts_path %>
+					</div>
+				</selection>
 			</main>
 			<footer>
 			</footer>
