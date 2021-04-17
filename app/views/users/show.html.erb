@@ -9,10 +9,10 @@
 	</head>
 	<body>
 		<div>
-			<div class="user_show_main clearfix">
+			<div class="flex_main-box">
 				<selection>
-					<div class="user_show_user">
-						<h2 class="user_show_user_title">
+					<div class="flex_main-box_item">
+						<h2 class="post_main-box_title">
 							ユーザー
 						</h2>
 						<div class="user_show_user_item">
@@ -24,12 +24,12 @@
 					</div>
 				</selection>
 				<selection>
-					<div class="user_show_post">
-						<h2 class="user_show_post_title">
+					<div class="flex_main-box_item">
+						<h2 class="user_main-box_title">
 							過去の投稿
 						</h2>
 						<% @posts.each do |post| %>
-							<div class="user_show_post_item">
+							<div class="user_index_item">
 								<%= attachment_image_tag post, :image, :fill, 120, 120 %><br>
 								<%= post.title %><br>
 								<%= post.body %><br>
@@ -42,12 +42,12 @@
 					</div>
 				</selection>
 				<selection>
-					<div class="user_show_favorite">
-						<h2 class="user_show_favorite_title">
+					<div class="flex_main-box_item">
+						<h2 class="user_main-box_title">
 							いいねした投稿
 						</h2>
 						<% @user.favorited_posts.each do |post| %>
-							<div class="user_show_favorite_item">
+							<div class="user_index_item">
 								<%= attachment_image_tag post, :image, :fill, 120, 120 %><br>
 								<%= post.user.name %><br>
 								<%= post.title %><br>

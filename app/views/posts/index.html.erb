@@ -9,27 +9,26 @@
 	</head>
 	<body>
 		<div>
-			<div class="main clearfix">
-				<selection >
-					<div class="post_index_genre">
-						<h2 class="post_index_genre_title">
+			<div class="flex_main-box">
+					<div class="flex_main-box_item">
+						<h2 class="post_main-box_title">
 							ジャンルから検索
 						</h2>
-						<div class="post_index_genre_select">
+						<div class="post_genre_item">
 							<% @genres.each do |genre| %>
 								<%= link_to genre.name, posts_path(genre: genre.id) %><br>
 							<% end %>
-							<%= paginate @genres %>
+						</div>
+						<div class="post_botton">
+							<%= link_to "投稿画面へ", new_post_path, method: :get %>
 						</div>
 					</div>
-				</selection>
-				<selection>
-					<div class="post_index_popular">
-							<h2 class="post_index_popular_title">
+					<div class="flex_main-box_item">
+							<h2 class="post_main-box_title">
 								人気の投稿top3
 							</h2>
 							<% @posts_rank.each do |post_rank| %>
-								<div class="post_index_popular_item">
+								<div class="post_index_item">
 									<%= attachment_image_tag post_rank, :image, :fill, 120, 120 %><br>
 									<%= post_rank.title %><br>
 									<%= post_rank.body %><br>
@@ -38,14 +37,12 @@
 								</div>
 							<% end %>
 					</div>
-				</selection>
-				<selection>
-					<div class="post_index_arrival">
-						<h2 class="post_index_arrival_title">
+					<div class="flex_main-box_item">
+						<h2 class="post_main-box_title">
 							新着投稿
 						</h2>
 						<% @posts.each do |post| %>
-							<div class="post_index_arrival_item">
+							<div class="post_index_item">
 								<%= attachment_image_tag post, :image, :fill, 120, 120 %><br>
 								<%= post.title %><br>
 								<%= post.body %><br>
@@ -56,12 +53,6 @@
 						<% end %>
 						<%= paginate @posts %>
 					</div>
-				</selection>
-				<selection>
-					<div class="post_botton">
-						<%= button_to "投稿画面へ", new_post_path, method: :get %>
-					</div>
-				</selection>
 			</div>
 		</div>
 		<script type="text/javascript" src="app/assets/javascripts/jquery.min.js"></script>
