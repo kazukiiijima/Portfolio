@@ -4,6 +4,8 @@
 	    <%= csrf_meta_tags %>
 	    <%= csp_meta_tag %>
 	    <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
+	    <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&display=swap" rel="stylesheet">
 	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
@@ -16,11 +18,8 @@
 						</h2>
 						<div class="post_genre_item">
 							<% @genres.each do |genre| %>
-								<%= link_to genre.name, posts_path(genre: genre.id) %><br>
+								・<%= link_to genre.name, posts_path(genre: genre.id) %><br>
 							<% end %>
-						</div>
-						<div class="post_botton">
-							<%= link_to "投稿画面へ", new_post_path, method: :get %>
 						</div>
 					</div>
 					<div class="flex_main-box_item">
@@ -29,7 +28,7 @@
 							</h2>
 							<% @posts_rank.each do |post_rank| %>
 								<div class="post_index_item">
-									<%= attachment_image_tag post_rank, :image, :fill, 120, 120 %><br>
+									<%= attachment_image_tag post_rank, :image, :fill, 240, 240 %><br>
 									<%= post_rank.title %><br>
 									<%= post_rank.body %><br>
 									(いいね数：<%= post_rank.favorited_users.count %>)<br>
@@ -43,7 +42,7 @@
 						</h2>
 						<% @posts.each do |post| %>
 							<div class="post_index_item">
-								<%= attachment_image_tag post, :image, :fill, 120, 120 %><br>
+								<%= attachment_image_tag post, :image, :fill, 240, 240 %><br>
 								<%= post.title %><br>
 								<%= post.body %><br>
 								(いいね数：<%= post.favorited_users.count %>)<br>
@@ -53,7 +52,22 @@
 						<% end %>
 						<%= paginate @posts %>
 					</div>
+					<div class="flex_main-box_item">
+						<h2 class="post_main-box_title">
+							投稿する
+						</h2>
+						<div class="post_botton">
+							<%= link_to "投稿画面へ", new_post_path, method: :get %>
+						</div>
+					</div>
 			</div>
+
+			<span id="back">
+		      <a href="#">
+		        <img src="assets/images/arrow.png">
+		      </a>
+		    </span>
+
 		</div>
 		<script type="text/javascript" src="app/assets/javascripts/jquery.min.js"></script>
     	<script type="text/javascript" src="app/assets/javascripts/application.js"></script>
