@@ -28,7 +28,7 @@
 							</h2>
 							<% @posts_rank.each do |post_rank| %>
 								<div class="post_index_item">
-									<%= attachment_image_tag post_rank, :image, :fill, 240, 240 %><br>
+									<%= attachment_image_tag post_rank, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %><br>
 									<%= post_rank.title %><br>
 									<%= post_rank.body %><br>
 									(いいね数：<%= post_rank.favorited_users.count %>)<br>
@@ -42,7 +42,7 @@
 						</h2>
 						<% @posts.each do |post| %>
 							<div class="post_index_item">
-								<%= attachment_image_tag post, :image, :fill, 240, 240 %><br>
+								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %><br>
 								<%= post.title %><br>
 								<%= post.body %><br>
 								(いいね数：<%= post.favorited_users.count %>)<br>

@@ -13,6 +13,12 @@
 				<div class="user_edit_user">
 					<%= form_with model: @user, url: user_path, local: true do |f| %>
 						<h2 class="user_edit_user_title">
+							画像
+						</h2>
+						<div>
+							<%= f.attachment_field :image %><br>
+						</div>
+						<h2 class="user_edit_user_title">
 							ユーザー名
 						</h2>
 						<div class="user_edit_user_item">

@@ -89,6 +89,7 @@ header {
 }
 
 .post_main-box_title {
+  text-align: center;
   padding: 0 auto;
   color: #364e96;
   padding: 0.5em 0;
@@ -139,12 +140,14 @@ header {
 .post_show_image {
   text-align: center;
   padding: 10px;
-  background-color: blue;
+}
+
+.post_show_title {
+  background-color: #dcdcdc;
 }
 
 .post_show_item {
   padding: 0 auto;
-  background-color: yellow;
 }
 
 .post_favolite_count {
@@ -159,28 +162,15 @@ header {
   background-color: green;
 }
 
-.post_comment_post {
-  width: 300px;
-  height: auto;
-  background-color: blue;
-}
-
-.post_comment_post_title {
-  width: 300px;
-  height: auto;
-  background-color: green;
-}
-
 .post_comment_post_item {
   text-align: center;
   padding: 10px;
-  background-color: yellow;
 }
 
 .post_comment_all {
   width: 300px;
   height: auto;
-  background-color: blue;
+
 }
 
 .post_show_back {
@@ -211,8 +201,10 @@ header {
 
 .user_show_user_item {
   text-align: center;
-  padding: 10px;
-  background-color: yellow;
+  width: 250px;
+  margin: 10px auto;
+  background-color: #dcdcdc;
+  border: 3px solid #364e96;
 }
 
 .user_show_user_edit {
@@ -220,15 +212,6 @@ header {
   padding: 10px;
   background-color: green;
 }
-
-.user_index_item {
-  text-align: center;
-  width: 250px;
-  margin: 10px auto;
-  background-color: white;
-  border: 3px solid black;
-}
-
 
 .user_edit_main {
   width: 90%;
