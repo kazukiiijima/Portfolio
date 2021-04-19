@@ -10,45 +10,41 @@
 	<body>
 		<div>
 			<div class="flex_main-box">
-				<selection>
 					<div class="flex_main-box_item">
 						<h2 class="post_main-box_title">
 							ユーザー
 						</h2>
 						<div class="user_show_user_item">
-							<%= @user.name %>
-						</div>
-						<div class="user_show_user_edit">
-							<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %>
+							<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "no-image.jpg"  %><br>
+							<%= @user.name %><br>
+							<br>
+							<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %><br>
 						</div>
 					</div>
-				</selection>
-				<selection>
 					<div class="flex_main-box_item">
-						<h2 class="user_main-box_title">
+						<h2 class="post_main-box_title">
 							過去の投稿
 						</h2>
 						<% @posts.each do |post| %>
-							<div class="user_index_item">
-								<%= attachment_image_tag post, :image, :fill, 120, 120 %><br>
+							<div class="post_index_item">
+								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %><br>
 								<%= post.title %><br>
 								<%= post.body %><br>
 								<%= button_to "投稿詳細を見る", post_path(post.id), method: :get %><br>
 								<% if post.user == current_user %>
 									<%= button_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %><b>
 								<% end %>
+								<br>
 							</div>
 						<% end %>
 					</div>
-				</selection>
-				<selection>
 					<div class="flex_main-box_item">
-						<h2 class="user_main-box_title">
+						<h2 class="post_main-box_title">
 							いいねした投稿
 						</h2>
 						<% @user.favorited_posts.each do |post| %>
-							<div class="user_index_item">
-								<%= attachment_image_tag post, :image, :fill, 120, 120 %><br>
+							<div class="post_index_item">
+								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %><br>
 								<%= post.user.name %><br>
 								<%= post.title %><br>
 								<%= post.body %><br>
@@ -56,7 +52,12 @@
 							</div>
 						<% end %>
 					</div>
-				</selection>
+
+
+				<span id="back">
+				      <a href="#">
+				        <img src="assets/images/arrow.png">
+				    </span>
 			</div>
 			<footer>
 			</footer>

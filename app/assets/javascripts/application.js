@@ -17,3 +17,23 @@
 //= require turbolinks
 //= require_tree .
 
+$(function() {
+
+  $('#back a').on('click',function(){
+    $('body, html').animate({
+      scrollTop:0
+    }, 800);
+      event.preventDefault();
+  });
+
+});
+
+$(function(){
+    $('.post_botton').mouseover(function(){
+        $('.post_botton').addClass('post_botton-ext');
+    });
+
+    $('.post_botton').mouseout(function(){
+        $('.post_botton').removeClass('post_botton-ext');
+    });
+});
