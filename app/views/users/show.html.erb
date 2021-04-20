@@ -3,6 +3,7 @@
 		<title>Portfolio</title>
 	    <%= csrf_meta_tags %>
 	    <%= csp_meta_tag %>
+	    <script src="https://kit.fontawesome.com/94b299a21d.js" crossorigin="anonymous"></script>
 	    <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
 	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -15,7 +16,7 @@
 							ユーザー
 						</h2>
 						<div class="user_show_user_item">
-							<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "no-image.jpg"  %><br>
+							<%= attachment_image_tag @user, :image, :fill, 240, 240, fallback: "no-image.jpg"  %><br>
 							<%= @user.name %><br>
 							<br>
 							<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %><br>
@@ -30,6 +31,11 @@
 								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %><br>
 								<%= post.title %><br>
 								<%= post.body %><br>
+								<i class="far fa-thumbs-up"></i>
+								<%= post.favorited_users.count %>
+								<i class="far fa-comment"></i>
+								<%= post.comments.count %><br>
+								<%= button_to "詳細", post_path(post.id), method: :get %><br>
 								<%= button_to "投稿詳細を見る", post_path(post.id), method: :get %><br>
 								<% if post.user == current_user %>
 									<%= button_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %><b>
@@ -48,6 +54,11 @@
 								<%= post.user.name %><br>
 								<%= post.title %><br>
 								<%= post.body %><br>
+								<i class="far fa-thumbs-up"></i>
+								<%= post.favorited_users.count %>
+								<i class="far fa-comment"></i>
+								<%= post.comments.count %><br>
+								<%= button_to "詳細", post_path(post.id), method: :get %><br>
 								<%= button_to "投稿を見にいく", post_path(post.id), method: :get %><br>
 							</div>
 						<% end %>

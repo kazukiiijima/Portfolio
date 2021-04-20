@@ -5,6 +5,7 @@
     <title>Portfolio</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/94b299a21d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
     <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
@@ -20,25 +21,31 @@
       <nav>
         <ul class="nav-list">
           <% if user_signed_in? %>
-            <a class="nav-list-item">
+            <div class="nav-list-item">
+              <i class="fas fa-user"></i>
               <%= link_to"マイページ", user_path(current_user.id) %>
-            </a>
-            <a class="nav-list-item">
+            </div>
+            <div class="nav-list-item">
+              <i class="fas fa-pencil-alt"></i>
               <%= link_to"投稿ページ", posts_path %>
-            </a>
-            <a class="nav-list-item">
+            </div>
+            <div class="nav-list-item">
+              <i class="fas fa-door-open"></i>
               <%= link_to"ログアウト", destroy_user_session_path, method: :delete %>
-            </a>
+            </div>
           <% else %>
-            <a class="nav-list-item">
-              <%= link_to"投稿ページ", posts_path %>
-            </a>
-            <a class="nav-list-item">
+            <div class="nav-list-item">
+              <i class="far fa-bookmark"></i>
               <%= link_to"新規登録", new_user_registration_path %>
-            </a>
-            <a class="nav-list-item">
+            </div>
+            <div class="nav-list-item">
+              <i class="fas fa-sign-in-alt"></i>
               <%= link_to"ログイン", new_user_session_path %>
-            </a>
+            </div>
+            <div class="nav-list-item">
+              <i class="fas fa-user-slash"></i>
+              <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post %>
+            </div>
           <% end %>
         </ul>
       </nav>

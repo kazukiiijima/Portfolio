@@ -3,6 +3,7 @@
 		<title>Portfolio</title>
 	    <%= csrf_meta_tags %>
 	    <%= csp_meta_tag %>
+	    <script src="https://kit.fontawesome.com/94b299a21d.js" crossorigin="anonymous"></script>
 	    <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
 	    <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
 						</h2>
 						<div class="post_genre_item">
 							<% @genres.each do |genre| %>
-								・<%= link_to genre.name, posts_path(genre: genre.id) %><br>
+								<%= link_to genre.name, posts_path(genre: genre.id) %><br>
 							<% end %>
 						</div>
 					</div>
@@ -28,11 +29,18 @@
 							</h2>
 							<% @posts_rank.each do |post_rank| %>
 								<div class="post_index_item">
-									<%= attachment_image_tag post_rank, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %><br>
-									<%= post_rank.title %><br>
+									<div class="post_index_item_image">
+										<%= attachment_image_tag post_rank, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %>
+									</div>
+									<div class="post_index_item_title">
+										<%= post_rank.title %>
+									</div>
 									<%= post_rank.body %><br>
-									(いいね数：<%= post_rank.favorited_users.count %>)<br>
-									(コメント数：<%= post_rank.comments.count %>)<br>
+									<i class="far fa-thumbs-up"></i>
+									<%= post_rank.favorited_users.count %>
+									<i class="far fa-comment"></i>
+									<%= post_rank.comments.count %><br>
+									<%= post_rank.user.name %>
 								</div>
 							<% end %>
 					</div>
@@ -42,11 +50,18 @@
 						</h2>
 						<% @posts.each do |post| %>
 							<div class="post_index_item">
-								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %><br>
-								<%= post.title %><br>
+								<div class="post_index_item_image">
+									<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %>
+								</div>
+								<div class="post_index_item_title">
+									<%= post.title %>
+								</div>
 								<%= post.body %><br>
-								(いいね数：<%= post.favorited_users.count %>)<br>
-								(コメント数：<%= post.comments.count %>)<br>
+								<i class="far fa-thumbs-up"></i>
+								<%= post.favorited_users.count %>
+								<i class="far fa-comment"></i>
+								<%= post.comments.count %><br>
+								<%= post.user.name %>
 								<%= button_to "詳細", post_path(post.id), method: :get %><br>
 							</div>
 						<% end %>
@@ -57,7 +72,7 @@
 							投稿する
 						</h2>
 						<div class="post_botton">
-							<%= link_to "投稿画面へ", new_post_path, method: :get %>
+							<%= button_to "投稿画面へ", new_post_path, method: :get %>
 						</div>
 					</div>
 			</div>
