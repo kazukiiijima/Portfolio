@@ -6,9 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/94b299a21d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
+    <link rel="stylesheet" type="text/css" herf="application.css">
     <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/application.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -51,9 +53,6 @@
       </nav>
 
     </header>
-    </footer>
-    <script type="text/javascript" src="app/assets/javascripts/jquery.min.js"></script>
-    <script type="text/javascript" src="app/assets/javascripts/application.js"></script>
-    <%= yield %>
+     <%= yield %>
   </body>
 </html>

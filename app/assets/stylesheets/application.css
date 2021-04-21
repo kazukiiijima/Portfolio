@@ -33,7 +33,7 @@ header {
   padding: 15px 0;
   margin: 0 auto;
   color: white;
-  background-color: #f00
+  background-color: #f00;
 }
 
 .app_title {
@@ -50,13 +50,13 @@ header {
   padding: 10px 0;
   margin: 0 auto;
   font-family: 'M PLUS 1p', sans-serif;
+  color: white　!important;
 }
 
 .nav-list-item {
   display: inline-block;
   margin: 0 20px;
   font-size: 20px;
-  color: white　!important;
 }
 
 .top_text {
