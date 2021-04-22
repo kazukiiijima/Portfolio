@@ -3,7 +3,8 @@
 		<title>Portfolio</title>
 	    <%= csrf_meta_tags %>
 	    <%= csp_meta_tag %>
-	    <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
+	    <script src="https://kit.fontawesome.com/94b299a21d.js" crossorigin="anonymous"></script>
+	    <link rel="stylesheet" type="text/css"　herf="application.css">
 	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
@@ -23,8 +24,14 @@
 						</h2>
 						<div class="user_edit_user_item">
 							<%= f.text_field :name %><br>
-							<%= f.submit '変更を保存' %>
 						</div>
+						<h2 class="user_edit_user_title">
+							プロフィール
+						</h2>
+						<div class="user_edit_user_item">
+							<%= f.text_field :profile %><br>
+						</div>
+					<%= f.submit '変更を保存' %>
 					<% end %>
 				</div>
 			</div>

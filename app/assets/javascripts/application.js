@@ -28,12 +28,3 @@ $(function() {
 
 });
 
-$(function(){
-    $('.post_botton').mouseover(function(){
-        $('.post_botton').addClass('post_botton-ext');
-    });
-
-    $('.post_botton').mouseout(function(){
-        $('.post_botton').removeClass('post_botton-ext');
-    });
-});

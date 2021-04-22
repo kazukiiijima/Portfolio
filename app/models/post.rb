@@ -7,4 +7,6 @@ class Post < ApplicationRecord
 	has_many :comments, dependent: :destroy
 	attachment :image
 
+	validates :title, presence: true
+	validates :body, presence: true
 end

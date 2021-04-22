@@ -3,7 +3,8 @@
 		<title>Portfolio</title>
 	    <%= csrf_meta_tags %>
 	    <%= csp_meta_tag %>
-	    <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
+	    <script src="https://kit.fontawesome.com/94b299a21d.js" crossorigin="anonymous"></script>
+	    <link rel="stylesheet" type="text/css"　herf="application.css">
 	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
@@ -44,6 +45,7 @@
 							<h2 class="post_main-box_title">
 								いいね数
 							</h2>
+							<i class="far fa-thumbs-up"></i>
 							=<%= @post.favorites.count %>
 								<% if current_user.already_favorited?(@post) %>
 									<%= button_to 'いいねを取り消す', post_favorite_path(@post), method: :delete %>
@@ -73,11 +75,11 @@
 						</h2>
 						<div class="post_comment_all">
 							<% @comments.each do |comment| %>
+								<div class="post_comment">
+								ユーザー名:<%= comment.user.name %><br>
 								<%= link_to comment.text, user_path(comment.user.id) %><br>
+								</div>
 							<% end %>
-						</div>
-						<div class="post_show_back">
-							<%= link_to "一覧に戻る", posts_path %>
 						</div>
 					</div>
 

@@ -14,12 +14,13 @@ class UsersController < ApplicationController
 		user = User.find(params[:id])
 		user.update(user_params)
 		redirect_to user_path
+		flash[:notice] = "プロフィールの編集に成功しました"
 	end
 
 	private
 
 	def user_params
-		params.require(:user).permit(:name, :image)
+		params.require(:user).permit(:name, :image, :profile)
 	end
 
 end

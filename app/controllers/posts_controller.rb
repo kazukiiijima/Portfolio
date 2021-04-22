@@ -5,11 +5,11 @@ class PostsController < ApplicationController
 	def index
 		@genres = Genre.all
 		if params[:genre].blank?
-			@posts = Post.all.page(params[:page]).per(5)
-			@posts_rank = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+			@posts = Post.all.order(created_at: :desc).page(params[:page]).per(5)
+			@posts_rank = Post.find(Favorite.group(:post_id).order('count(post_id) desc').order(created_at: :desc).limit(3).pluck(:post_id))
 		else
-			@posts = Post.where(genre_id: params[:genre]).page(params[:page]).per(5)
-			@posts_rank = @posts.includes(:favorited_users).limit(3).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
+			@posts = Post.where(genre_id: params[:genre]).order(created_at: :desc).page(params[:page]).per(5)
+			@posts_rank = @posts.includes(:favorited_users).order(created_at: :desc).limit(3).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
 		end
 	end
 
@@ -26,10 +26,15 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		post = Post.new(post_params)
-		post.user_id = current_user.id
-		post.save
-		redirect_to posts_path
+		@post = Post.new(post_params)
+		@post.user_id = current_user.id
+		if @post.save
+			redirect_to posts_path
+			flash[:notice] = "投稿に成功しました"
+		else
+			@genres = Genre.all
+			render :new
+		end
 	end
 
 	def destroy

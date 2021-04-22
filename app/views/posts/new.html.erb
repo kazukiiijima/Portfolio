@@ -3,7 +3,8 @@
 		<title>Portfolio</title>
 	    <%= csrf_meta_tags %>
 	    <%= csp_meta_tag %>
-	    <link rel="stylesheet" href="app/assets/stylesheets/application.css"　media="all">
+	    <script src="https://kit.fontawesome.com/94b299a21d.js" crossorigin="anonymous"></script>
+	    <link rel="stylesheet" type="text/css"　herf="application.css">
 	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
@@ -13,6 +14,16 @@
 				<selection>
 					<div class="post_new">
 						<%= form_with model: @post, url: posts_path, local: true do |f| %>
+							<% if @post.errors.any? %> 
+							<%= @post.errors.count %>エラー
+						    	<div id="error_explanation" class="alert alert-danger"> 
+						      		<ul>
+							       		<% @post.errors.full_messages.each do |message| %> 
+						         			<li><%= message %></li> 
+						        		<% end %> 
+						      		</ul> 
+						   		</div> 
+							<% end %> 
 							<div class="post_new_item">
 								<%= f.attachment_field :image %><br>
 							</div>
@@ -32,11 +43,6 @@
 								<%= f.submit '投稿する' %>
 							</div>
 						<% end %>
-					</div>
-				</selection>
-				<selection>
-					<div class="post_show_back">
-						<%= link_to "一覧に戻る", posts_path %>
 					</div>
 				</selection>
 			</main>
