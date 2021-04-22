@@ -10,6 +10,11 @@
 	</head>
 	<body>
 		<div>
+			<% if flash[:notice] %>
+    			 <p id="notice">
+       				<%= flash[:notice] %>
+     			</p>
+   			<% end %>
 			<div class="flex_main-box">
 					<div class="flex_main-box_item">
 						<h2 class="post_main-box_title">
@@ -18,6 +23,7 @@
 						<div class="user_show_user_item">
 							<%= attachment_image_tag @user, :image, :fill, 240, 240, fallback: "no-image.jpg"  %><br>
 							<%= @user.name %><br>
+							<%= @user.profile %><br>
 							<br>
 							<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %><br>
 						</div>

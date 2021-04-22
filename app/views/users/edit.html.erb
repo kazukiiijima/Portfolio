@@ -24,8 +24,14 @@
 						</h2>
 						<div class="user_edit_user_item">
 							<%= f.text_field :name %><br>
-							<%= f.submit '変更を保存' %>
 						</div>
+						<h2 class="user_edit_user_title">
+							プロフィール
+						</h2>
+						<div class="user_edit_user_item">
+							<%= f.text_field :profile %><br>
+						</div>
+					<%= f.submit '変更を保存' %>
 					<% end %>
 				</div>
 			</div>

@@ -30,6 +30,7 @@ class PostsController < ApplicationController
 		@post.user_id = current_user.id
 		if @post.save
 			redirect_to posts_path
+			flash[:notice] = "投稿に成功しました"
 		else
 			@genres = Genre.all
 			render :new

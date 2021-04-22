@@ -61,7 +61,7 @@ header {
 
 .top_text {
   text-align: center;
-  margin: 0 auto;
+  margin: 20px;
 }
 
 
@@ -112,6 +112,7 @@ header {
 .post_index_item{
   width: 250px;
   margin: 10px;
+  text-align: center;
   background-color: #dcdcdc;
   border: 3px solid #364e96;
 }
