@@ -32,16 +32,13 @@ header {
   width: 100%;
   padding: 15px 0;
   margin: 0 auto;
-  color: white;
-  background-color: #f00;
 }
 
 .app_title {
   text-align: center;
   padding: 10px 0;
-  margin: 0 auto;
   font-family: 'Teko', sans-serif;
-  color: white　!important;
+  color: red;
   font-size: 60px;
 }
 
@@ -50,7 +47,6 @@ header {
   padding: 10px 0;
   margin: 0 auto;
   font-family: 'M PLUS 1p', sans-serif;
-  color: white　!important;
 }
 
 .nav-list-item {
@@ -63,10 +59,6 @@ header {
   text-align: center;
   margin: 20px;
 }
-
-
-
-
 
 .flex_main-box {
   display: flex;
@@ -195,26 +187,29 @@ header {
 .post_show_back {
   width: 90%;
   margin: 0 auto;
-  text-align: center;
   background-color: yellow;
+}
+
+.user_show_user_box {
+  width: 250px;
+  margin: 10px auto;
+  border: 3px solid #364e96;
+}
+
+.user_show_user_title {
+  background-color: #dcdcdc;
 }
 
 .user_show_user_item {
   text-align: center;
-  width: 250px;
-  margin: 10px auto;
-  background-color: #dcdcdc;
-  border: 3px solid #364e96;
 }
 
-.user_show_user_edit {
+.user_show_user_image{
   text-align: center;
-  padding: 10px;
-  background-color: green;
 }
 
 .user_edit_main {
-  width: 90%;
+  width: 60%;
   padding: 15px 0;
   margin: 0 auto;
 }
@@ -222,16 +217,15 @@ header {
 .user_edit_user {
   text-align: center;
   padding: 10px;
-  background-color: red;
 }
 
 .user_edit_user_title {
+  width: 70%;
+  margin: 0 auto;
   text-align: center;
-  background-color: blue;
+  background-color: #dcdcdc;
 }
 
 .user_edit_user_item {
-  text-align: center;
   padding: 10px;
-  background-color: yellow;
 }

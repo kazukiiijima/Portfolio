@@ -20,12 +20,25 @@
 						<h2 class="post_main-box_title">
 							ユーザー
 						</h2>
-						<div class="user_show_user_item">
-							<%= attachment_image_tag @user, :image, :fill, 240, 240, fallback: "no-image.jpg"  %><br>
-							<%= @user.name %><br>
-							<%= @user.profile %><br>
-							<br>
-							<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %><br>
+						<div class="user_show_user_box">
+							<div class="user_show_user_image">
+								<%= attachment_image_tag @user, :image, :fill, 240, 240, fallback: "no-image.jpg"  %><br>
+							</div>
+							<div class="user_show_user_title">
+								ユーザー名<br>
+							</div>
+							<div class="user_show_user_item">
+								<%= @user.name %><br>
+							</div>
+							<div class="user_show_user_title">
+								プロフィール　<br>
+							</div>
+							<div class="user_show_user_item">
+								<%= @user.profile %><br>
+							</div>
+							<div class="user_show_user_item">
+								<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %><br>
+							</div>
 						</div>
 					</div>
 					<div class="flex_main-box_item">
