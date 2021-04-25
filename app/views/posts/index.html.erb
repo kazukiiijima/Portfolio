@@ -36,7 +36,11 @@
 										<%= attachment_image_tag post_rank, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %>
 									</div>
 									<div class="post_index_item_title">
-										<%= post_rank.title %>
+										映画タイトル
+									</div>
+									<%= post_rank.title %>
+									<div class="post_index_item_title">
+										ここがオススメ!
 									</div>
 									<%= post_rank.body %><br>
 									<i class="far fa-thumbs-up"></i>
@@ -57,7 +61,11 @@
 									<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %>
 								</div>
 								<div class="post_index_item_title">
+									映画タイトル
+								</div>
 									<%= post.title %>
+								<div class="post_index_item_title">
+									ここがオススメ!
 								</div>
 								<%= post.body %><br>
 								<i class="far fa-thumbs-up"></i>

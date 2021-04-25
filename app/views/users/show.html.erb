@@ -48,7 +48,13 @@
 						<% @posts.each do |post| %>
 							<div class="post_index_item">
 								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %><br>
+								<div class="post_index_item_title">
+									動画タイトル
+								</div>
 								<%= post.title %><br>
+								<div class="post_index_item_title">
+									ここがオススメ!
+								</div>
 								<%= post.body %><br>
 								<i class="far fa-thumbs-up"></i>
 								<%= post.favorited_users.count %>
@@ -70,8 +76,13 @@
 						<% @user.favorited_posts.each do |post| %>
 							<div class="post_index_item">
 								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %><br>
-								<%= post.user.name %><br>
+								<div class="post_index_item_title">
+									動画タイトル
+								</div>
 								<%= post.title %><br>
+								<div class="post_index_item_title">
+									ここがオススメ!
+								</div>
 								<%= post.body %><br>
 								<i class="far fa-thumbs-up"></i>
 								<%= post.favorited_users.count %>

@@ -105,7 +105,6 @@ header {
   width: 250px;
   margin: 10px;
   text-align: center;
-  background-color: #dcdcdc;
   border: 3px solid #364e96;
 }
 
@@ -115,7 +114,7 @@ header {
 }
 
 .post_index_item_title {
-  font-size: 23px
+ background-color: #dcdcdc;
 }
 
 #back {
