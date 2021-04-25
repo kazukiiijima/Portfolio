@@ -5,8 +5,6 @@
 	    <%= csp_meta_tag %>
 	    <script src="https://kit.fontawesome.com/94b299a21d.js" crossorigin="anonymous"></script>
 	   <link rel="stylesheet" type="text/css"　herf="application.css">
-	    <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
-	    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&display=swap" rel="stylesheet">
 	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
@@ -38,7 +36,11 @@
 										<%= attachment_image_tag post_rank, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %>
 									</div>
 									<div class="post_index_item_title">
-										<%= post_rank.title %>
+										映画タイトル
+									</div>
+									<%= post_rank.title %>
+									<div class="post_index_item_title">
+										ここがオススメ!
 									</div>
 									<%= post_rank.body %><br>
 									<i class="far fa-thumbs-up"></i>
@@ -59,7 +61,11 @@
 									<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %>
 								</div>
 								<div class="post_index_item_title">
+									映画タイトル
+								</div>
 									<%= post.title %>
+								<div class="post_index_item_title">
+									ここがオススメ!
 								</div>
 								<%= post.body %><br>
 								<i class="far fa-thumbs-up"></i>
