@@ -1,0 +1,230 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@charset "UTF-8";
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header {
+  width: 100%;
+  padding: 15px 0;
+  margin: 0 auto;
+}
+
+.app_title {
+  text-align: center;
+  padding: 10px 0;
+  font-family: 'Teko', sans-serif;
+  color: red;
+  font-size: 60px;
+}
+
+.nav-list {
+  text-align: center;
+  padding: 10px 0;
+  margin: 0 auto;
+  font-family: 'M PLUS 1p', sans-serif;
+}
+
+.nav-list-item {
+  display: inline-block;
+  margin: 0 20px;
+  font-size: 20px;
+}
+
+.top_text {
+  text-align: center;
+  margin: 20px;
+}
+
+.flex_main-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: 15px 0;
+
+}
+
+.flex_main-box_item {
+  padding: 10px;
+  margin: 20px;
+}
+
+.post_main-box_title {
+  text-align: center;
+  padding: 0 auto;
+  color: #364e96;
+  padding: 0.5em 0;
+  border-top: solid 3px #364e96;
+  border-bottom: solid 3px #364e96;
+  font-family: 'M PLUS 1p', sans-serif;
+}
+
+.post_genre_item {
+  display: inline-block;
+  font-family: 'M PLUS 1p', sans-serif;
+}
+
+.post_botton {
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  margin: 20px;
+  background-color: white;
+}
+
+.post_botton-ext {
+  background-color: #fa8072;
+}
+
+.post_index_item{
+  width: 250px;
+  margin: 10px;
+  text-align: center;
+  border: 3px solid #364e96;
+}
+
+.post_index_item_image {
+  background-color: white;
+  text-align: center;
+}
+
+.post_index_item_title {
+ background-color: #dcdcdc;
+}
+
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+#back img {
+  width: 50px;
+}
+
+
+.post_show_image {
+  text-align: center;
+  padding: 10px;
+}
+
+.post_show_title {
+  background-color: #dcdcdc;
+}
+
+.post_show_item {
+  padding: 0 auto;
+}
+
+.post_favolite_count {
+  width: 300px;
+  height: auto;
+  background-color: blue;
+}
+
+.post_favolite_count_name {
+  width: 300px;
+  height: auto;
+  background-color: green;
+}
+
+.post_comment_post_item {
+  text-align: center;
+  padding: 10px;
+}
+
+.post_comment_all {
+  width: 300px;
+  height: auto;
+}
+
+.post_comment {
+  height: auto;
+  width: 250px;
+  margin: 10px auto;
+  background-color: white;
+  border: 3px solid #364e96;
+}
+
+.post_new {
+  width: 60%;
+  padding: 15px 0;
+  margin: 0 auto;
+}
+
+.post_new_item {
+  text-align: center;
+  padding: 15px;
+  background-color: #dcdcdc;
+}
+
+.post_show_back {
+  width: 90%;
+  margin: 0 auto;
+  background-color: yellow;
+}
+
+.user_show_user_box {
+  width: 250px;
+  margin: 10px auto;
+  border: 3px solid #364e96;
+}
+
+.user_show_user_title {
+  background-color: #dcdcdc;
+}
+
+.user_show_user_item {
+  text-align: center;
+}
+
+.user_show_user_image{
+  text-align: center;
+}
+
+.user_edit_main {
+  width: 60%;
+  padding: 15px 0;
+  margin: 0 auto;
+}
+
+.user_edit_user {
+  text-align: center;
+  padding: 10px;
+}
+
+.user_edit_user_title {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #dcdcdc;
+}
+
+.user_edit_user_item {
+  padding: 10px;
+}

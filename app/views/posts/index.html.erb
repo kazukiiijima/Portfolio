@@ -73,7 +73,7 @@
 								<i class="far fa-comment"></i>
 								<%= post.comments.count %><br>
 								<%= post.user.name %>
-								<%= button_to "詳細", post_path(post.id), method: :get %><br>
+								<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
 							</div>
 						<% end %>
 						<%= paginate @posts %>
@@ -90,12 +90,12 @@
 
 			<span id="back">
 		      <a href="#">
-		        <img src="assets/images/arrow.png">
+		        <img src="/images/arrow.png">
 		      </a>
 		    </span>
 
 		</div>
-		<script type="text/javascript" src="../../assets/javascripts/jquery.min.js"></script>
-    	<script type="text/javascript" src="../../assets/avascripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+    	<script type="text/javascript" src="/js/jquery.min.js"></script>
 	</body>
 </html>

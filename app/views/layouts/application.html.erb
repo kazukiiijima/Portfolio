@@ -9,8 +9,8 @@
     <link rel="stylesheet" type="text/css" herf="application.css">
     <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="/home/vagrant/work/Portfolio/Portfolio/app/assets/javascripts/jquery.min.js"></script>
-    <script type="text/javascript" src="/home/vagrant/work/Portfolio/Portfolio/app/assets/javascripts/application.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/application.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -46,7 +46,7 @@
             </div>
             <div class="nav-list-item">
               <i class="fas fa-user-slash"></i>
-              <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post %>
+              <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
             </div>
           <% end %>
         </ul>
