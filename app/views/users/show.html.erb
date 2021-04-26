@@ -61,7 +61,7 @@
 								<i class="far fa-comment"></i>
 								<%= post.comments.count %><br>
 								<%= button_to "詳細", post_path(post.id), method: :get %><br>
-								<%= button_to "投稿詳細を見る", post_path(post.id), method: :get %><br>
+								<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
 								<% if post.user == current_user %>
 									<%= button_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %><b>
 								<% end %>
@@ -89,7 +89,7 @@
 								<i class="far fa-comment"></i>
 								<%= post.comments.count %><br>
 								<%= button_to "詳細", post_path(post.id), method: :get %><br>
-								<%= button_to "投稿を見にいく", post_path(post.id), method: :get %><br>
+								<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
 							</div>
 						<% end %>
 					</div>
@@ -97,11 +97,13 @@
 
 				<span id="back">
 				      <a href="#">
-				        <img src="assets/images/arrow.png">
+				        <img src="/images/arrow.png">
 				    </span>
 			</div>
 			<footer>
 			</footer>
 		</div>
+		<script type="text/javascript" src="/js/jquery.min.js"></script>
+    	<script type="text/javascript" src="/js/application.js"></script>
 	</body>
 </html>
