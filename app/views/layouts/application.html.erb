@@ -7,6 +7,14 @@
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/94b299a21d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" herf="application.css">
+    <style type="text/css">
+<!--
+a:link { color:#0000ff; text-decoration:none }
+a:visited { color:#0000ff; text-decoration:none }
+a:hover { color:#0000ff; text-decoration:none }
+a:active { color:#0000ff; text-decoration:none }
+-->
+</style>
     <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
@@ -17,41 +25,42 @@
 
   <body>
     <header>
-      <h1 class="app_title">
-        <%= link_to"Hello! Youtuber", root_path  %>
-      </h1>
-      <nav>
-        <ul class="nav-list">
-          <% if user_signed_in? %>
-            <div class="nav-list-item">
-              <i class="fas fa-user"></i>
-              <%= link_to"マイページ", user_path(current_user.id) %>
-            </div>
-            <div class="nav-list-item">
-              <i class="fas fa-pencil-alt"></i>
-              <%= link_to"投稿ページ", posts_path %>
-            </div>
-            <div class="nav-list-item">
-              <i class="fas fa-door-open"></i>
-              <%= link_to"ログアウト", destroy_user_session_path, method: :delete %>
-            </div>
-          <% else %>
-            <div class="nav-list-item">
-              <i class="far fa-bookmark"></i>
-              <%= link_to"新規登録", new_user_registration_path %>
-            </div>
-            <div class="nav-list-item">
-              <i class="fas fa-sign-in-alt"></i>
-              <%= link_to"ログイン", new_user_session_path %>
-            </div>
-            <div class="nav-list-item">
-              <i class="fas fa-user-slash"></i>
-              <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
-            </div>
-          <% end %>
-        </ul>
-      </nav>
-
+      <div class="top">
+        <h1 class="app_title">
+          <%= link_to"Hello! Youtuber", root_path  %>
+        </h1>
+        <nav>
+          <ul class="nav-list">
+            <% if user_signed_in? %>
+              <div class="nav-list-item">
+                <i class="fas fa-user"></i>
+                <%= link_to"マイページ", user_path(current_user.id) %>
+              </div>
+              <div class="nav-list-item">
+                <i class="fas fa-pencil-alt"></i>
+                <%= link_to"投稿ページ", posts_path %>
+              </div>
+              <div class="nav-list-item">
+                <i class="fas fa-door-open"></i>
+                <%= link_to"ログアウト", destroy_user_session_path, method: :delete %>
+              </div>
+            <% else %>
+              <div class="nav-list-item">
+                <i class="far fa-bookmark"></i>
+                <%= link_to"新規登録", new_user_registration_path %>
+              </div>
+              <div class="nav-list-item">
+                <i class="fas fa-sign-in-alt"></i>
+                <%= link_to"ログイン", new_user_session_path %>
+              </div>
+              <div class="nav-list-item">
+                <i class="fas fa-user-slash"></i>
+                <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+              </div>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
     </header>
      <%= yield %>
   </body>
