@@ -14,79 +14,88 @@
        			<%= flash[:notice] %>
      		</p>
    		<% end %>
-		<div>
-			<div class="flex_main-box">
-					<div class="flex_main-box_item">
-						<h2 class="post_main-box_title">
-							ジャンルから検索
-						</h2>
-						<div class="post_genre_item">
-							<% @genres.each do |genre| %>
-								<%= link_to genre.name, posts_path(genre: genre.id) %><br>
-							<% end %>
-						</div>
-					</div>
-					<div class="flex_main-box_item">
-							<h2 class="post_main-box_title">
-								人気の投稿top3
+			<div class="main clearfix">
+				<div class="sidebar">
+					<div class="sidebar_box">
+							<h2 class="sidebar_title">
+								ジャンルから検索
 							</h2>
-							<% @posts_rank.each do |post_rank| %>
-								<div class="post_index_item">
-									<div class="post_index_item_image">
-										<%= attachment_image_tag post_rank, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %>
+							<div class="sidebar_item">
+								<% @genres.each do |genre| %>
+									<%= link_to genre.name, posts_path(genre: genre.id) %><br>
+								<% end %>
+							</div>
+						</div>
+				</div>
+				<div class="post">
+					<div class="post-rank">
+								<h2 class="post_title">
+									人気の投稿top3
+								</h2>
+								<% @posts_rank.each do |post_rank| %>
+									<div class="post_item">
+											<div class="post_item_image">
+												<%= attachment_image_tag post_rank, :image, :fill, 60, 60 %>
+											</div>
+											<div class="post_item_title">
+												映画タイトル
+											</div>
+											<%= post_rank.title %>
+											<div class="post_item_title">
+												ここがオススメ!
+											</div>
+											<%= post_rank.body %><br>
+											<div class="post_item_title">
+												投稿ユーザー
+											</div>
+											<%= post_rank.user.name %><br>
+											<div class="reaction">
+												<i class="far fa-thumbs-up"></i>
+												<%= post_rank.favorited_users.count %>
+												<i class="far fa-comment"></i>
+												<%= post_rank.comments.count %><br>
+											</div>
 									</div>
-									<div class="post_index_item_title">
+								<% end %>
+					</div>
+					<div class="post-new">
+							<h2 class="post_title">
+								新着投稿
+							</h2>
+							<% @posts.each do |post| %>
+								<div class="post_item">
+									<div class="post_item_image">
+										<%= attachment_image_tag post, :image, :fill, 60, 60 %>
+									</div>
+									<div class="post_item_title">
 										映画タイトル
 									</div>
-									<%= post_rank.title %>
-									<div class="post_index_item_title">
+										<%= post.title %>
+									<div class="post_item_title">
 										ここがオススメ!
 									</div>
-									<%= post_rank.body %><br>
-									<i class="far fa-thumbs-up"></i>
-									<%= post_rank.favorited_users.count %>
-									<i class="far fa-comment"></i>
-									<%= post_rank.comments.count %><br>
-									<%= post_rank.user.name %>
+									<%= post.body %><br>
+									<div class="post_item_title">
+										投稿ユーザー
+									</div>
+									<%= post.user.name %><br>
+									<div class="reaction">
+										<i class="far fa-thumbs-up"></i>
+										<%= post.favorited_users.count %>
+										<i class="far fa-comment"></i>
+										<%= post.comments.count %><br>
+									</div>
+									<div class="botton">
+										<%= button_to "詳しく見る", post_path(post.id), method: :get %>
+									</div>
 								</div>
 							<% end %>
+							<%= paginate @posts %>
 					</div>
-					<div class="flex_main-box_item">
-						<h2 class="post_main-box_title">
-							新着投稿
-						</h2>
-						<% @posts.each do |post| %>
-							<div class="post_index_item">
-								<div class="post_index_item_image">
-									<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %>
-								</div>
-								<div class="post_index_item_title">
-									映画タイトル
-								</div>
-									<%= post.title %>
-								<div class="post_index_item_title">
-									ここがオススメ!
-								</div>
-								<%= post.body %><br>
-								<i class="far fa-thumbs-up"></i>
-								<%= post.favorited_users.count %>
-								<i class="far fa-comment"></i>
-								<%= post.comments.count %><br>
-								<%= post.user.name %>
-								<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
-							</div>
-						<% end %>
-						<%= paginate @posts %>
-					</div>
-					<div class="flex_main-box_item">
-						<h2 class="post_main-box_title">
-							投稿する
-						</h2>
-						<div class="post_botton">
-							<%= button_to "投稿画面へ", new_post_path, method: :get %>
-						</div>
-					</div>
+				</div>
 			</div>
+
+				</div>
 
 			<span id="back">
 		      <a href="#">

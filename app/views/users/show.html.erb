@@ -22,21 +22,17 @@
 						</h2>
 						<div class="user_show_user_box">
 							<div class="user_show_user_image">
-								<%= attachment_image_tag @user, :image, :fill, 240, 240, fallback: "no-image.jpg"  %><br>
+								<%= attachment_image_tag @user, :image, :fill, 240, 240, fallback: "no-image.png"  %><br>
 							</div>
 							<div class="user_show_user_title">
-								ユーザー名<br>
+								ユーザー名
 							</div>
-							<div class="user_show_user_item">
-								<%= @user.name %><br>
-							</div>
+								<%= @user.name %>
 							<div class="user_show_user_title">
-								プロフィール　<br>
+								プロフィール
 							</div>
-							<div class="user_show_user_item">
-								<%= @user.profile %><br>
-							</div>
-							<div class="user_show_user_item">
+								<%= @user.profile %>
+							<div class="botton">
 								<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %><br>
 							</div>
 						</div>
@@ -47,7 +43,7 @@
 						</h2>
 						<% @posts.each do |post| %>
 							<div class="post_index_item">
-								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %><br>
+								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "no-image.png" %><br>
 								<div class="post_index_item_title">
 									動画タイトル
 								</div>
@@ -56,16 +52,20 @@
 									ここがオススメ!
 								</div>
 								<%= post.body %><br>
-								<i class="far fa-thumbs-up"></i>
-								<%= post.favorited_users.count %>
-								<i class="far fa-comment"></i>
-								<%= post.comments.count %><br>
-								<%= button_to "詳細", post_path(post.id), method: :get %><br>
-								<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
-								<% if post.user == current_user %>
-									<%= button_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %><b>
-								<% end %>
-								<br>
+								<div class="reaction">
+									<i class="far fa-thumbs-up"></i>
+									<%= post.favorited_users.count %>
+									<i class="far fa-comment"></i>
+									<%= post.comments.count %><br>
+								</div>
+								<div class="botton">
+									<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
+								</div>
+								<div class="botton">
+									<% if post.user == current_user %>
+										<%= button_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %>
+									<% end %>
+								</div>
 							</div>
 						<% end %>
 					</div>
@@ -75,7 +75,7 @@
 						</h2>
 						<% @user.favorited_posts.each do |post| %>
 							<div class="post_index_item">
-								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "post-no-image.jpg" %><br>
+								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "no-image.png" %><br>
 								<div class="post_index_item_title">
 									動画タイトル
 								</div>
@@ -84,12 +84,19 @@
 									ここがオススメ!
 								</div>
 								<%= post.body %><br>
-								<i class="far fa-thumbs-up"></i>
-								<%= post.favorited_users.count %>
-								<i class="far fa-comment"></i>
-								<%= post.comments.count %><br>
-								<%= button_to "詳細", post_path(post.id), method: :get %><br>
-								<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
+								<div class="post_index_item_title">
+									投稿ユーザー
+								</div>
+								<%= post.user.name %><br>
+								<div class="reaction">
+									<i class="far fa-thumbs-up"></i>
+									<%= post.favorited_users.count %>
+									<i class="far fa-comment"></i>
+									<%= post.comments.count %><br>
+								</div>
+								<div class="botton">
+									<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
+								</div>
 							</div>
 						<% end %>
 					</div>
