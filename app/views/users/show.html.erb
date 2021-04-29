@@ -43,7 +43,7 @@
 						</h2>
 						<% @posts.each do |post| %>
 							<div class="post_index_item">
-								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "no-image.png" %><br>
+								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "a.jpg" %><br>
 								<div class="post_index_item_title">
 									動画タイトル
 								</div>
@@ -75,7 +75,7 @@
 						</h2>
 						<% @user.favorited_posts.each do |post| %>
 							<div class="post_index_item">
-								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "no-image.png" %><br>
+								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "a.jpg" %><br>
 								<div class="post_index_item_title">
 									動画タイトル
 								</div>

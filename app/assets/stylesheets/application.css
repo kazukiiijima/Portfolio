@@ -98,25 +98,26 @@ header {
   color: black;
 }
 
-.post {
-  width: 1060px;
-  height: 1000px;
-  background-color: limegreen;
-  float: left;
-}
-
 .post-rank {
   width: 1060px;
   height: 400px;
-  margin: 20px 0;
   background-color: blue;
+  float: left;
+}
+
+.post-rank-box {
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
 }
 
 .post-new {
   width: 1060px;
   height: 600px;
   background-color: yellow;
+  float: left;
 }
+
 
 .post_title {
   text-align: center;
@@ -129,7 +130,8 @@ header {
 
 .post_item {
   display: inline-block;
-  width: 280px;
+  width: 30%;
+  height: 30%
   margin: 30px;
   background-color: white;
   float: left;
@@ -138,10 +140,15 @@ header {
 .post_item_image {
   background-color: white;
   text-align: center;
+  width: 0 auto;
 }
 
 .post_item_title {
   background-color: #ffa500;
+}
+
+.post_item_contents {
+  background-color:white;
 }
 
 

@@ -27,36 +27,38 @@
 							</div>
 						</div>
 				</div>
-				<div class="post">
+
 					<div class="post-rank">
-								<h2 class="post_title">
-									人気の投稿top3
-								</h2>
-								<% @posts_rank.each do |post_rank| %>
-									<div class="post_item">
-											<div class="post_item_image">
-												<%= attachment_image_tag post_rank, :image, :fill, 60, 60 %>
-											</div>
-											<div class="post_item_title">
-												映画タイトル
-											</div>
-											<%= post_rank.title %>
-											<div class="post_item_title">
-												ここがオススメ!
-											</div>
-											<%= post_rank.body %><br>
-											<div class="post_item_title">
-												投稿ユーザー
-											</div>
-											<%= post_rank.user.name %><br>
-											<div class="reaction">
-												<i class="far fa-thumbs-up"></i>
-												<%= post_rank.favorited_users.count %>
-												<i class="far fa-comment"></i>
-												<%= post_rank.comments.count %><br>
-											</div>
+						<div class="post-rank-box">
+							<h2 class="post_title">
+								人気の投稿top3
+							</h2>
+							<% @posts_rank.each do |post_rank| %>
+								<div class="post_item">
+									<div class="post_item_image">
+										<%= attachment_image_tag post_rank, :image, :fill, 280, 200%>
 									</div>
-								<% end %>
+									<div class="post_item_title">
+										映画タイトル
+									</div>
+									<%= post_rank.title %>
+									<div class="post_item_title">
+										ここがオススメ!
+									</div>
+									<%= post_rank.body %><br>
+									<div class="post_item_title">
+										投稿ユーザー
+									</div>
+									<%= post_rank.user.name %><br>
+									<div class="reaction">
+										<i class="far fa-thumbs-up"></i>
+										<%= post_rank.favorited_users.count %>
+										<i class="far fa-comment"></i>
+										<%= post_rank.comments.count %><br>
+									</div>
+								</div>
+							<% end %>
+						</div>
 					</div>
 					<div class="post-new">
 							<h2 class="post_title">
@@ -65,7 +67,7 @@
 							<% @posts.each do |post| %>
 								<div class="post_item">
 									<div class="post_item_image">
-										<%= attachment_image_tag post, :image, :fill, 60, 60 %>
+										<%= attachment_image_tag post, :image, :fill, 280, 200 %>
 									</div>
 									<div class="post_item_title">
 										映画タイトル
@@ -93,7 +95,7 @@
 							<%= paginate @posts %>
 					</div>
 				</div>
-			</div>
+
 
 				</div>
 
