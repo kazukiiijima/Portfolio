@@ -9,64 +9,64 @@
 	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
 	<body>
-		<% if flash[:notice] %>
-     		<p id="notice">
-       			<%= flash[:notice] %>
-     		</p>
-   		<% end %>
+		<div class="massage">
+			<% if flash[:notice] %>
+	     		<p id="notice">
+	       			<%= flash[:notice] %>
+	     		</p>
+	   		<% end %>
+	   	</div>
 			<div class="main clearfix">
 				<div class="sidebar">
 					<div class="sidebar_box">
-							<h2 class="sidebar_title">
-								ジャンルから検索
-							</h2>
-							<div class="sidebar_item">
-								<% @genres.each do |genre| %>
-									<%= link_to genre.name, posts_path(genre: genre.id) %><br>
-								<% end %>
-							</div>
+						<h2 class="sidebar_title">
+							ジャンルから検索
+						</h2>
+						<div class="sidebar_item">
+							<% @genres.each do |genre| %>
+								<%= link_to genre.name, posts_path(genre: genre.id) %><br>
+							<% end %>
 						</div>
-				</div>
-				<div class="post">
-					<div class="post-rank">
-								<h2 class="post_title">
-									人気の投稿top3
-								</h2>
-								<% @posts_rank.each do |post_rank| %>
-									<div class="post_item">
-											<div class="post_item_image">
-												<%= attachment_image_tag post_rank, :image, :fill, 60, 60 %>
-											</div>
-											<div class="post_item_title">
-												映画タイトル
-											</div>
-											<%= post_rank.title %>
-											<div class="post_item_title">
-												ここがオススメ!
-											</div>
-											<%= post_rank.body %><br>
-											<div class="post_item_title">
-												投稿ユーザー
-											</div>
-											<%= post_rank.user.name %><br>
-											<div class="reaction">
-												<i class="far fa-thumbs-up"></i>
-												<%= post_rank.favorited_users.count %>
-												<i class="far fa-comment"></i>
-												<%= post_rank.comments.count %><br>
-											</div>
-									</div>
-								<% end %>
 					</div>
+				</div>
+
+					<div class="post-rank">
+							<h2 class="post_title">
+								人気の投稿top3
+							</h2>
+							<% @posts_rank.each do |post_rank| %>
+								<div class="post_item">
+									<%= attachment_image_tag post_rank, :image, :fill, 280, 200, fallback:"a.png"%><br>
+									<div class="post_item_title">
+										映画タイトル<br>
+									</div>
+									<%= post_rank.title %><br>
+									<div class="post_item_title">
+										ここがオススメ!<br>
+									</div>
+									<%= post_rank.body %><br>
+									<div class="post_item_title">
+										投稿ユーザー<br>
+									</div>
+									<%= post_rank.user.name %><br>
+									<div class="post_item_title">
+										<i class="far fa-thumbs-up"></i>
+										<%= post_rank.favorited_users.count %>
+										<i class="far fa-comment"></i>
+										<%= post_rank.comments.count %>
+									</div>
+								</div>
+							<% end %>
+					</div>
+
+
 					<div class="post-new">
 							<h2 class="post_title">
 								新着投稿
 							</h2>
 							<% @posts.each do |post| %>
 								<div class="post_item">
-									<div class="post_item_image">
-										<%= attachment_image_tag post, :image, :fill, 60, 60 %>
-									</div>
+										<%= attachment_image_tag post, :image, :fill, 280, 200, fallback:"a.png" %>
 									<div class="post_item_title">
 										映画タイトル
 									</div>
@@ -79,21 +79,23 @@
 										投稿ユーザー
 									</div>
 									<%= post.user.name %><br>
-									<div class="reaction">
+									<div class="post_item_title">
 										<i class="far fa-thumbs-up"></i>
 										<%= post.favorited_users.count %>
 										<i class="far fa-comment"></i>
-										<%= post.comments.count %><br>
+										<%= post.comments.count %>
 									</div>
-									<div class="botton">
+									<div class="post_item_title">
 										<%= button_to "詳しく見る", post_path(post.id), method: :get %>
 									</div>
 								</div>
 							<% end %>
-							<%= paginate @posts %>
+							<div class= "post-page">
+								<%= paginate @posts %>
+							</div>
 					</div>
 				</div>
-			</div>
+
 
 				</div>
 

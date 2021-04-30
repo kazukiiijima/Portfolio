@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 	def index
 		@genres = Genre.all
 		if params[:genre].blank?
-			@posts = Post.all.order(created_at: :desc).page(params[:page]).per(5)
+			@posts = Post.all.order(created_at: :desc).page(params[:page]).per(6)
 			@posts_rank = Post.find(Favorite.group(:post_id).order('count(post_id) desc').order(created_at: :desc).limit(3).pluck(:post_id))
 		else
 			@posts = Post.where(genre_id: params[:genre]).order(created_at: :desc).page(params[:page]).per(5)
