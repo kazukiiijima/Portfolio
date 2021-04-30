@@ -9,107 +9,104 @@
 	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
 	<body>
-		<div>
+		<div class="massage">
 			<% if flash[:notice] %>
     			 <p id="notice">
        				<%= flash[:notice] %>
      			</p>
    			<% end %>
-			<div class="flex_main-box">
-					<div class="flex_main-box_item">
-						<h2 class="post_main-box_title">
-							ユーザー
-						</h2>
-						<div class="user_show_user_box">
-							<div class="user_show_user_image">
-								<%= attachment_image_tag @user, :image, :fill, 240, 240, fallback: "no-image.png"  %><br>
-							</div>
-							<div class="user_show_user_title">
-								ユーザー名
-							</div>
-								<%= @user.name %>
-							<div class="user_show_user_title">
-								プロフィール
-							</div>
-								<%= @user.profile %>
-							<div class="botton">
-								<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %><br>
-							</div>
+   		</div>
+   		<div class="main clearfix">
+   			<div class="user-sidebar">
+   				<div class="user-sidebar-box">
+   					<div class="user-sidebar-title">
+   						ユーザー情報
+   					</div>
+   					<div class="user-sidebar-item">
+	   					<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "a.png"  %><br>
+	   					<div class="post_item_title">
+	   						ユーザー名
+	   					</div>
+	   					<%= @user.name %>
+	   					<div class="post_item_title">
+	   						プロフィール
+	   					</div>
+	   					<%= @user.profile %><br>
+	   					<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %>
+	   				</div>
+   				</div>
+   			</div>
+   			<div class="post-rank">
+   				<h2 class="post_title">
+   					過去の投稿
+   				</h2>
+   				<% @posts.each do |post| %>
+   					<div class="post_item">
+   						<%= attachment_image_tag post, :image, :fill, 200, 200, fallback: "a.png" %><br>
+   						<div class="post_item_title">
+   							動画タイトル
+   						</div>
+   						<%= post.title %><br>
+   						<div class="post_item_title">
+   							ここがオススメ!
+   						</div>
+   						<%= post.body %><br>
+   						<div class="post_item_title">
+   							<i class="far fa-thumbs-up"></i>
+							<%= post.favorited_users.count %>
+							<i class="far fa-comment"></i>
+							<%= post.comments.count %>
+						</div>
+						<div class="post_item_title">
+							<%= button_to "詳しく見る", post_path(post.id), method: :get %>
+							<% if post.user == current_user %>
+								<%= button_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %>
+							<% end %>
+						</div>
+   					</div>
+   				<% end %>
+   				<div class= "post-page">
+					<%= paginate @posts %>
+				</div>
+			</div>
+			<div class="post-new">
+				<h2 class="post_title">
+					いいねした投稿
+				</h2>
+				<% @user.favorited_posts.each do |post| %>
+					<div class="post_item">
+						<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "a.png" %><br>
+						<div class="post_item_title">
+							動画タイトル
+						</div>
+						<%= post.title %><br>
+						<div class="post_item_title">
+							ここがオススメ!
+						</div>
+						<%= post.body %><br>
+						<div class="post_item_title">
+							投稿ユーザー
+						</div>
+						<%= post.user.name %><br>
+						<div class="post_item_title">
+							<i class="far fa-thumbs-up"></i>
+							<%= post.favorited_users.count %>
+							<i class="far fa-comment"></i>
+							<%= post.comments.count %><br>
+						</div>
+						<div class="post_item_title">
+							<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
 						</div>
 					</div>
-					<div class="flex_main-box_item">
-						<h2 class="post_main-box_title">
-							過去の投稿
-						</h2>
-						<% @posts.each do |post| %>
-							<div class="post_index_item">
-								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "a.jpg" %><br>
-								<div class="post_index_item_title">
-									動画タイトル
-								</div>
-								<%= post.title %><br>
-								<div class="post_index_item_title">
-									ここがオススメ!
-								</div>
-								<%= post.body %><br>
-								<div class="reaction">
-									<i class="far fa-thumbs-up"></i>
-									<%= post.favorited_users.count %>
-									<i class="far fa-comment"></i>
-									<%= post.comments.count %><br>
-								</div>
-								<div class="botton">
-									<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
-								</div>
-								<div class="botton">
-									<% if post.user == current_user %>
-										<%= button_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %>
-									<% end %>
-								</div>
-							</div>
-						<% end %>
-					</div>
-					<div class="flex_main-box_item">
-						<h2 class="post_main-box_title">
-							いいねした投稿
-						</h2>
-						<% @user.favorited_posts.each do |post| %>
-							<div class="post_index_item">
-								<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "a.jpg" %><br>
-								<div class="post_index_item_title">
-									動画タイトル
-								</div>
-								<%= post.title %><br>
-								<div class="post_index_item_title">
-									ここがオススメ!
-								</div>
-								<%= post.body %><br>
-								<div class="post_index_item_title">
-									投稿ユーザー
-								</div>
-								<%= post.user.name %><br>
-								<div class="reaction">
-									<i class="far fa-thumbs-up"></i>
-									<%= post.favorited_users.count %>
-									<i class="far fa-comment"></i>
-									<%= post.comments.count %><br>
-								</div>
-								<div class="botton">
-									<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
-								</div>
-							</div>
-						<% end %>
-					</div>
-
-
-				<span id="back">
-				      <a href="#">
-				        <img src="/images/arrow.png">
-				    </span>
+				<% end %>
 			</div>
-			<footer>
-			</footer>
-		</div>
+   		</div>
+		<span id="back">
+			<a href="#">
+			<img src="/images/arrow.png">
+		</span>
+		<footer>
+		</footer>
 		<script type="text/javascript" src="/js/jquery.min.js"></script>
     	<script type="text/javascript" src="/js/application.js"></script>
 	</body>
