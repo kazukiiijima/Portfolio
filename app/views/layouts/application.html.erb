@@ -14,50 +14,49 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header>
-      <div class="top">
-        <h1 class="app_title">
-          <%= link_to"Hello! Youtuber", root_path  %>
+      <div class="box">
+        <h1 class="headline">
+            <%= link_to"Hello! Youtuber", root_path  %>
         </h1>
         <nav>
-          <ul class="nav-list">
-            <% if user_signed_in? %>
-              <div class="nav-list-item">
-                <i class="fas fa-user"></i>
-                <%= link_to"マイページ", user_path(current_user.id) %>
-              </div>
-              <div class="nav-list-item">
-                <i class="fas fa-door-open"></i>
-                <%= link_to"ログアウト", destroy_user_session_path, method: :delete %>
-              </div>
-              <div class="nav-list-item">
-                <i class="fas fa-book-open"></i>
-                <%= link_to"投稿ページ", posts_path %>
-              </div>
-              <div class="nav-list-item">
-                <i class="fas fa-pencil-alt"></i>
-                <%= link_to "投稿画面へ", new_post_path %>
-              </div>
-            <% else %>
-              <div class="nav-list-item">
-                <i class="far fa-bookmark"></i>
-                <%= link_to"新規登録", new_user_registration_path %>
-              </div>
-              <div class="nav-list-item">
-                <i class="fas fa-sign-in-alt"></i>
-                <%= link_to"ログイン", new_user_session_path %>
-              </div>
-              <div class="nav-list-item">
-                <i class="fas fa-user-slash"></i>
-                <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
-              </div>
-            <% end %>
-          </ul>
+            <ul class="nav-list">
+              <% if user_signed_in? %>
+                <li class="nav-list-item">
+                  <i class="fas fa-user"></i>
+                  <%= link_to"マイページ", user_path(current_user.id) %>
+                </li>
+                <li class="nav-list-item">
+                  <i class="fas fa-door-open"></i>
+                  <%= link_to"ログアウト", destroy_user_session_path, method: :delete %>
+                </li>
+                <li class="nav-list-item">
+                  <i class="fas fa-book-open"></i>
+                  <%= link_to"投稿ページ", posts_path %>
+                </li>
+                <li class="nav-list-item">
+                  <i class="fas fa-pencil-alt"></i>
+                  <%= link_to "投稿画面へ", new_post_path %>
+                </li>
+              <% else %>
+                <li class="nav-list-item">
+                  <i class="far fa-bookmark"></i>
+                  <%= link_to"新規登録", new_user_registration_path %>
+                </li>
+                <li class="nav-list-item">
+                  <i class="fas fa-sign-in-alt"></i>
+                  <%= link_to"ログイン", new_user_session_path %>
+                </li>
+                <li class="nav-list-item">
+                  <i class="fas fa-user-slash"></i>
+                  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+                </li>
+              <% end %>
+            </ul>
         </nav>
       </div>
     </header>
-    </body>
-     <%= yield %>
+  </body>
+  <%= yield %>
 </html>

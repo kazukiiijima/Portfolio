@@ -9,46 +9,41 @@
 	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
 	<body>
-		<div>
-			<main>
-				<selection>
-					<div class="post_new">
-						<%= form_with model: @post, url: posts_path, local: true do |f| %>
-							<% if @post.errors.any? %> 
-							<%= @post.errors.count %>エラー
-						    	<div id="error_explanation" class="alert alert-danger"> 
-						      		<ul>
-							       		<% @post.errors.full_messages.each do |message| %> 
-						         			<li><%= message %></li> 
-						        		<% end %> 
-						      		</ul> 
-						   		</div> 
-							<% end %> 
-							<div class="post_new_item">
-								<%= f.attachment_field :image %><br>
-							</div>
-							<div class="post_new_item">
-								<%= f.label :title, '動画タイトル' %><br>
-								<%= f.text_field :title %><br>
-							</div>
-							<div class="post_new_item">
-								<%= f.label :body, 'ここがオススメ！' %><br>
-							    <%= f.text_area :body %><br>
-							</div>
-							<div class="post_new_item">
-								<%= f.label :genre_id, 'ジャンル' %><br>
-								<%= f.collection_select(:genre_id, @genres, :id, :name, { include_blank: '選択してください'}, { class: 'form-control' , required: true }) %><br>
-							</div>
-							<div class="post_new_item">
-								<%= f.submit '投稿する' %>
-							</div>
-						<% end %>
-					</div>
-				</selection>
-			</main>
-			<footer>
-			</footer>
-		</div>
+		<main>
+			<div class="post_new">
+				<%= form_with model: @post, url: posts_path, local: true do |f| %>
+					<% if @post.errors.any? %> 
+						<%= @post.errors.count %>エラー
+							<div id="error_explanation" class="alert alert-danger"> 
+							    <ul>
+								    <% @post.errors.full_messages.each do |message| %> 
+							        	<li><%= message %></li> 
+							    	<% end %> 
+							    </ul> 
+							</div> 
+						<% end %> 
+					<h2 class="post_new_item">
+						画像
+					</h2>
+					<%= f.attachment_field :image %><br>
+					<h2 class="post_new_item">
+						<%= f.label :title, '動画タイトル' %><br>
+					</h2>
+					<%= f.text_field :title %><br>
+					<h2 class="post_new_item">
+						<%= f.label :body, 'ここがオススメ！' %><br>
+					</h2>
+					<%= f.text_area :body %><br>
+					<h2 class="post_new_item">
+						<%= f.label :genre_id, 'ジャンル' %><br>
+					</h2>
+					<%= f.collection_select(:genre_id, @genres, :id, :name, { include_blank: '選択してください'}, { class: 'form-control' , required: true }) %><br>
+						<%= f.submit '投稿する' %>
+				<% end %>
+			</div>
+		</main>
+		<footer>
+		</footer>
 		<script type="text/javascript" src="/js/jquery.min.js"></script>
     	<script type="text/javascript" src="/js/application.js"></script>
 	</body>

@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     		redirect_to root_path
     	else
     		post.destroy
-    		redirect_to user_path(current_user), notice: 'You have destroy book successfully.'
+    		redirect_to user_path(current_user), notice: '投稿を削除しました'
     	end
 	end
 
