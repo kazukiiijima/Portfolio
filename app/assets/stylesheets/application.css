@@ -29,43 +29,52 @@
 }
 
 header {
-}
-
-.top {
-  width: 100%;
-  height: 200px;
-  padding: 15px 0;
+  width: 90%;
+  height: 400px;
+  padding: 50px 0;
   margin: 0 auto;
-  background-image: url("/images/img1.jpg")
+  text-align: center;
+  background-image: url("/images/top.png")
 }
 
-.app_title {
-  text-align: center;
-  padding: 10px 0;
-  font-family: 'Teko', sans-serif;
-  font-size: 60px
+header .box {
+  margin: 0 auto;
+  width: 90%;
+  padding: 80px;
+}
+
+.headline {
+  font-size: 50px;
+  margin: 0 auto;
+  width: 70%;
+  background-color: #dcdcdc;
+  font-family: 'Krona One', sans-serif;
 }
 
 .nav-list {
   text-align: center;
   padding: 10px 0;
   margin: 0 auto;
-  font-family: 'M PLUS 1p', sans-serif;
+  font-size: 20px;
+  width: 70%;
+  background-color:  #dcdcdc;
 }
-
 .nav-list-item {
+  list-style: none;
   display: inline-block;
   margin: 0 20px;
-  font-size: 20px;
-}
-
-.top_text {
-  text-align: center;
-  margin: 20px;
 }
 
 body {
   background-color: #dcdcdc;
+}
+
+.top_text {
+  width: 90%;
+  padding: 50px 0;
+  margin: 0 auto;
+  text-align: center;
+  background-color: white;
 }
 
 .main {
@@ -77,9 +86,9 @@ body {
 
 .sidebar {
   width: 240px;
-  height: 1000px;
-  background-color: palegreen;
+  height: 1450px;
   float: left;
+  background-color: #808080;
 }
 
 .sidebar_box {
@@ -87,10 +96,10 @@ body {
 
 .sidebar_title{
   text-align: center;
-  color: #364e96;
+  color: white;
   padding: 0.5em 0;
-  border-top: solid 3px #364e96;
-  border-bottom: solid 3px #364e96;
+  border-top: solid 3px white;
+  border-bottom: solid 3px white;
   font-family: 'M PLUS 1p', sans-serif;
 }
 
@@ -106,24 +115,23 @@ body {
 
 .post-rank {
   width: 1060px;
-  background-color: blue;
   float: left;
 }
 
 .post-new {
   width: 1060px;
   height: 0 auto;
-  background-color: yellow;
   float: left;
 }
 
 
 .post_title {
   text-align: center;
-  color: #364e96;
+  color: white;
   padding: 0.5em 0;
-  border-top: solid 3px #364e96;
-  border-bottom: solid 3px #364e96;
+  border-top: solid 3px white;
+  border-bottom: solid 3px white;
+  background-color: #808080;
   font-family: 'M PLUS 1p', sans-serif;
 }
 
@@ -134,11 +142,12 @@ body {
   height: auto;
   margin: 20px;
   background-color: white;
+  font-family: 'M PLUS 1p', sans-serif;
 
 }
 
 .post_item_title {
-  background-color: #f4a460;
+  background-color: #cd5c5c;
 }
 
 .post-page {
@@ -149,21 +158,19 @@ body {
 
 .user-sidebar {
   width: 240px;
-  height: 1000px;
-  background-color: palegreen;
+  height: 1890px;
   float: left;
-}
-
-.user-sidebar-box {
+  background-color: #808080;
 }
 
 .user-sidebar-title{
   text-align: center;
-  color: #364e96;
+  color: white;
   padding: 0.5em 0;
-  border-top: solid 3px #364e96;
-  border-bottom: solid 3px #364e96;
+  border-top: solid 3px white;
+  border-bottom: solid 3px white;
   font-family: 'M PLUS 1p', sans-serif;
+  font-size: 24px;
 }
 
 .user-sidebar-item {
@@ -176,6 +183,10 @@ body {
   background-color: white;
 }
 
+.user_item_title {
+  background-color: #eee8aa;
+}
+
 
 .massage {
   text-align: center;
@@ -185,7 +196,6 @@ body {
   height: 50px;
 }
 
-
 .flex_main-box {
   display: flex;
   align-items: flex-start;
@@ -194,13 +204,11 @@ body {
   padding: 15px 0;
 }
 
-
-
-
 .flex_main-box_item {
   padding: 10px;
   margin: 20px;
   background-color: white;
+  font-family: 'M PLUS 1p', sans-serif;
 }
 
 .post_main-box_title {
@@ -262,12 +270,15 @@ body {
   width: 60%;
   padding: 15px 0;
   margin: 0 auto;
+  text-align: center;
+  font-family: 'M PLUS 1p', sans-serif;
 }
 
 .post_new_item {
+  width: 70%;
+  margin: 0 auto;
   text-align: center;
-  padding: 15px;
-  background-color: #dcdcdc;
+  background-color: white;
 }
 
 
@@ -288,6 +299,7 @@ body {
   width: 60%;
   padding: 15px 0;
   margin: 0 auto;
+  font-family: 'M PLUS 1p', sans-serif;
 }
 
 .user_edit_user {
@@ -299,7 +311,7 @@ body {
   width: 70%;
   margin: 0 auto;
   text-align: center;
-  background-color: #dcdcdc;
+  background-color: white;
 }
 
 .user_edit_user_item {

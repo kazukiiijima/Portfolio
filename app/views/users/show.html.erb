@@ -18,23 +18,21 @@
    		</div>
    		<div class="main clearfix">
    			<div class="user-sidebar">
-   				<div class="user-sidebar-box">
    					<div class="user-sidebar-title">
    						ユーザー情報
    					</div>
    					<div class="user-sidebar-item">
 	   					<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "a.png"  %><br>
-	   					<div class="post_item_title">
+	   					<div class="user_item_title">
 	   						ユーザー名
 	   					</div>
 	   					<%= @user.name %>
-	   					<div class="post_item_title">
+	   					<div class="user_item_title">
 	   						プロフィール
 	   					</div>
 	   					<%= @user.profile %><br>
 	   					<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %>
 	   				</div>
-   				</div>
    			</div>
    			<div class="post-rank">
    				<h2 class="post_title">
@@ -50,7 +48,7 @@
    						<div class="post_item_title">
    							ここがオススメ!
    						</div>
-   						<%= post.body %><br>
+   						<%= post.body.truncate(15) %><br>
    						<div class="post_item_title">
    							<i class="far fa-thumbs-up"></i>
 							<%= post.favorited_users.count %>
@@ -75,7 +73,7 @@
 				</h2>
 				<% @user.favorited_posts.each do |post| %>
 					<div class="post_item">
-						<%= attachment_image_tag post, :image, :fill, 240, 240, fallback: "a.png" %><br>
+						<%= attachment_image_tag post, :image, :fill, 200, 200, fallback: "a.png" %><br>
 						<div class="post_item_title">
 							動画タイトル
 						</div>
@@ -83,7 +81,7 @@
 						<div class="post_item_title">
 							ここがオススメ!
 						</div>
-						<%= post.body %><br>
+						<%= post.body.truncate(15) %><br>
 						<div class="post_item_title">
 							投稿ユーザー
 						</div>

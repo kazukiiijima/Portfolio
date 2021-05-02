@@ -13,7 +13,7 @@
 			<div class="flex_main-box">
 					<div class="flex_main-box_item">
 						<div class="post_show_image">
-							<%= attachment_image_tag @post, :image, :fill, 400, 400 %>
+							<%= attachment_image_tag @post, :image, :fill, 200, 200, fallback: "a.png" %>
 						</div>
 						<h3 class="post_show_title">
 							投稿者<br>

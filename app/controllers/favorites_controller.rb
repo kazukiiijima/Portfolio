@@ -10,5 +10,4 @@ class FavoritesController < ApplicationController
 		@favorite.destroy
 		redirect_back(fallback_location: posts_path)
 	end
-
 end

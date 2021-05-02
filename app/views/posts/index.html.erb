@@ -40,11 +40,11 @@
 									<div class="post_item_title">
 										映画タイトル<br>
 									</div>
-									<%= post_rank.title %><br>
+									<%= post_rank.title.truncate(15) %><br>
 									<div class="post_item_title">
 										ここがオススメ!<br>
 									</div>
-									<%= post_rank.body %><br>
+									<%= post_rank.body.truncate(15) %><br>
 									<div class="post_item_title">
 										投稿ユーザー<br>
 									</div>
@@ -70,11 +70,11 @@
 									<div class="post_item_title">
 										映画タイトル
 									</div>
-										<%= post.title %>
+										<%= post.title.truncate(15) %>
 									<div class="post_item_title">
 										ここがオススメ!
 									</div>
-									<%= post.body %><br>
+									<%= post.body.truncate(15) %><br>
 									<div class="post_item_title">
 										投稿ユーザー
 									</div>
