@@ -29,7 +29,7 @@
 }
 
 header {
-  width: 90%;
+  width: 100%;
   height: 400px;
   padding: 50px 0;
   margin: 0 auto;
@@ -47,7 +47,7 @@ header .box {
   font-size: 50px;
   margin: 0 auto;
   width: 70%;
-  background-color: #dcdcdc;
+  background-color: white;
   font-family: 'Krona One', sans-serif;
 }
 
@@ -57,7 +57,6 @@ header .box {
   margin: 0 auto;
   font-size: 20px;
   width: 70%;
-  background-color:  #dcdcdc;
 }
 .nav-list-item {
   list-style: none;
@@ -66,7 +65,7 @@ header .box {
 }
 
 body {
-  background-color: #dcdcdc;
+  background-color: white;
 }
 
 .top_text {
@@ -78,14 +77,14 @@ body {
 }
 
 .main {
-  width: 1300px;
+  width: 100%;
   height: 0 auto;
   background-color: #dcdcdc;
   margin: 0 auto;
 }
 
 .sidebar {
-  width: 240px;
+  width: 20%;
   height: 1450px;
   float: left;
   background-color: #808080;
@@ -107,19 +106,19 @@ body {
   display: inline-block;
   font-family: 'M PLUS 1p', sans-serif;
   color: black;
-  width: 200px;
+  width: 80%;
   height: 0 auto;
   margin: 20px;
   background-color: white;
 }
 
 .post-rank {
-  width: 1060px;
+  width: 80%;
   float: left;
 }
 
 .post-new {
-  width: 1060px;
+  width: 80%;
   height: 0 auto;
   float: left;
 }
@@ -140,7 +139,7 @@ body {
   text-align: center;
   width: 300px;
   height: auto;
-  margin: 20px;
+  margin: 35px;
   background-color: white;
   font-family: 'M PLUS 1p', sans-serif;
 
@@ -157,8 +156,8 @@ body {
 }
 
 .user-sidebar {
-  width: 240px;
-  height: 1890px;
+  width: 20%;
+  height: 2000px;
   float: left;
   background-color: #808080;
 }
@@ -177,7 +176,7 @@ body {
   display: inline-block;
   font-family: 'M PLUS 1p', sans-serif;
   color: black;
-  width: 200px;
+  width: 80%;
   height: 0 auto;
   margin: 20px;
   background-color: white;
@@ -194,6 +193,7 @@ body {
   font-size: 30px;
   width: auto;
   height: 50px;
+  background-color: #cd5c5c;
 }
 
 .flex_main-box {
@@ -207,6 +207,7 @@ body {
 .flex_main-box_item {
   padding: 10px;
   margin: 20px;
+  text-align: center;
   background-color: white;
   font-family: 'M PLUS 1p', sans-serif;
 }
