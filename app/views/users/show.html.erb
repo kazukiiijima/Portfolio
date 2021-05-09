@@ -1,19 +1,19 @@
 <html>
 	<body>
-		<div class="massage">
-			<% if flash[:notice] %>
-    			 <p id="notice">
-       				<%= flash[:notice] %>
-     			</p>
-   			<% end %>
-   		</div>
    		<div class="main clearfix">
+   			<div class="massage">
+				<% if flash[:notice] %>
+	    			 <p id="notice">
+	       				<%= flash[:notice] %>
+	     			</p>
+	   			<% end %>
+	   		</div>
    			<div class="user-sidebar">
    					<div class="user-sidebar-title">
    						ユーザー情報
    					</div>
    					<div class="user-sidebar-item">
-	   					<%= attachment_image_tag @user, :image, :fill, 228, 228, fallback: "a.png"  %><br>
+	   						<%= attachment_image_tag @user, :image, :fill, 171, 171, fallback: "a.png"  %><br>
 	   					<div class="user_item_title">
 	   						ユーザー名
 	   					</div>
@@ -25,13 +25,13 @@
 	   					<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %>
 	   				</div>
    			</div>
-   			<div class="post-rank">
+   			<div class="post-past">
    				<h2 class="post_title">
    					過去の投稿
    				</h2>
    				<% @posts.each do |post| %>
    					<div class="post_item">
-   						<%= attachment_image_tag post, :image, :fill, 200, 200, fallback: "a.png" %><br>
+   						<%= attachment_image_tag post, :image, :fill, 300, 200, fallback: "a.png" %><br>
    						<div class="post_item_title">
    							動画タイトル
    						</div>
@@ -58,13 +58,13 @@
 					<%= paginate @posts %>
 				</div>
 			</div>
-			<div class="post-new">
+			<div class="post-favorite">
 				<h2 class="post_title">
 					いいねした投稿
 				</h2>
-				<% @user.favorited_posts.each do |post| %>
+				<% @users.each do |post| %>
 					<div class="post_item">
-						<%= attachment_image_tag post, :image, :fill, 200, 200, fallback: "a.png" %><br>
+						<%= attachment_image_tag post, :image, :fill, 300, 200, fallback: "a.png" %><br>
 						<div class="post_item_title">
 							動画タイトル
 						</div>
@@ -88,13 +88,14 @@
 						</div>
 					</div>
 				<% end %>
+				<div class= "post-page">
+					<%= paginate @posts %>
+				</div>
 			</div>
    		</div>
 		<span id="back">
 			<a href="#">
 			<img src="/images/arrow.png">
 		</span>
-		<footer>
-		</footer>
 	</body>
 </html>
