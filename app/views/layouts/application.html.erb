@@ -11,14 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <body>
     <header>
-      <div class="box">
-        <h1 class="headline">
-            <%= link_to"Movie Encounter", root_path  %>
-        </h1>
-        <nav>
-            <ul class="nav-list">
+        <div class="headline">
+            <%= link_to image_tag("logo.png", class: "image"), root_path  %>
+        </div>
               <% if user_signed_in? %>
                 <li class="nav-list-item">
                   <i class="fas fa-user"></i>
@@ -30,7 +28,7 @@
                 </li>
                 <li class="nav-list-item">
                   <i class="fas fa-book-open"></i>
-                  <%= link_to"投稿ページ", posts_path %>
+                  <%= link_to"投稿一覧", posts_path %>
                 </li>
                 <li class="nav-list-item">
                   <i class="fas fa-pencil-alt"></i>
@@ -50,11 +48,10 @@
                   <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
                 </li>
               <% end %>
-            </ul>
-        </nav>
-      </div>
     </header>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <footer>
+      ©︎2021 Kazuki Iijima Portoforio
+    </footer>
   <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/application.js"></script>
   </body>

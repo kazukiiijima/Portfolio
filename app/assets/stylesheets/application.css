@@ -30,64 +30,55 @@
 
 header {
   width: 100%;
-  height: 400px;
-  padding: 50px 0;
-  margin: 0 auto;
-  text-align: center;
-  background-image: url("/images/top.png")
-}
-
-header .box {
-  margin: 0 auto;
-  width: 90%;
-  padding: 80px;
+  background-color: white;
+  top: 0;
+  display: flex;
+  align-items: center;
+  background-color: rgba(220,220,220,0.8);
 }
 
 .headline {
-  font-size: 50px;
-  margin: 0 auto;
-  width: 70%;
-  background-color: white;
-  font-family: 'Krona One', sans-serif;
+  margin-left: 5px;
 }
 
-.nav-list {
-  text-align: center;
-  padding: 10px 0;
-  margin: 0 auto;
-  font-size: 20px;
-  width: 70%;
-}
 .nav-list-item {
+  margin: 40px;
+  font-size: 20px;
   list-style: none;
   display: inline-block;
-  margin: 0 20px;
 }
 
 body {
-  background-color: white;
+  width: 100%;
+  background-image: url(back.png);
+}
+.top {
+  width: 100%;
+  height: 600px;
+  background-image: url(top.png)
 }
 
 .top_text {
-  width: 90%;
+  width: 60%;
   padding: 50px 0;
   margin: 0 auto;
   text-align: center;
-  background-color: white;
+  font-size: 25PX;
+  background-color: rgba(225,225,225,0.8);
 }
 
 .main {
   width: 100%;
   height: 0 auto;
-  background-color: #dcdcdc;
   margin: 0 auto;
 }
 
 .sidebar {
-  width: 20%;
-  height: 1450px;
+  width: 15%;
+  margin-left: 2%;
+  height: 500px;
   float: left;
-  background-color: #808080;
+  background-color: rgba(105,105,105,0.5);
 }
 
 .sidebar_box {
@@ -109,20 +100,39 @@ body {
   width: 80%;
   height: 0 auto;
   margin: 20px;
-  background-color: white;
 }
 
 .post-rank {
   width: 80%;
+  margin-left: 1%;
+  margin-right: 2%;
+  height:600px;
   float: left;
 }
 
 .post-new {
   width: 80%;
-  height: 0 auto;
+  margin-left: 18%;
+  margin-right: 2%;
+  height: 1000px;
   float: left;
 }
 
+.post-past {
+  width: 80%;
+  margin-left: 1%;
+  margin-right: 2%;
+  height: 1000px;
+  float: left;
+}
+
+.post-favorite {
+  width: 80%;
+  margin-left: 18%;
+  margin-right: 2%;
+  height: 600px;
+  float: left;
+}
 
 .post_title {
   text-align: center;
@@ -130,7 +140,7 @@ body {
   padding: 0.5em 0;
   border-top: solid 3px white;
   border-bottom: solid 3px white;
-  background-color: #808080;
+  background-color: rgba(105,105,105,0.5);
   font-family: 'M PLUS 1p', sans-serif;
 }
 
@@ -156,10 +166,11 @@ body {
 }
 
 .user-sidebar {
-  width: 20%;
-  height: 2000px;
+  width: 15%;
+  margin-left: 2%;
+  height: 400px;
   float: left;
-  background-color: #808080;
+  background-color: rgba(105,105,105,0.5);
 }
 
 .user-sidebar-title{
@@ -193,15 +204,15 @@ body {
   font-size: 30px;
   width: auto;
   height: 50px;
-  background-color: #cd5c5c;
 }
 
 .flex_main-box {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  width: 100%;
+  height: 800px;
   padding: 15px 0;
+  background-image: url("img1.png")
 }
 
 .flex_main-box_item {
@@ -267,19 +278,20 @@ body {
   border: 3px solid #364e96;
 }
 
-.post_new {
-  width: 60%;
-  padding: 15px 0;
+.post_create {
+  height: 650px;
   margin: 0 auto;
   text-align: center;
   font-family: 'M PLUS 1p', sans-serif;
+    background-image: url("img1.png")
 }
 
 .post_new_item {
-  width: 70%;
-  margin: 0 auto;
+  width: 50%;
+  margin: 10px auto;
   text-align: center;
-  background-color: white;
+  background-color: rgba(105,105,105,0.5);
+  color: white;
 }
 
 
@@ -297,10 +309,11 @@ body {
 }
 
 .user_edit_main {
-  width: 60%;
+  height: 650px;
   padding: 15px 0;
   margin: 0 auto;
   font-family: 'M PLUS 1p', sans-serif;
+   background-image: url("img1.png")
 }
 
 .user_edit_user {
@@ -309,10 +322,11 @@ body {
 }
 
 .user_edit_user_title {
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   text-align: center;
-  background-color: white;
+  background-color: rgba(105,105,105,0.5);
+  color: white;
 }
 
 .user_edit_user_item {
@@ -327,6 +341,23 @@ body {
 .reaction {
   text-align: center;
   background-color: #ffd700;
+}
+
+input[type="text"] {
+  width: 500px;
+  height: 40px;
+}
+
+textarea {
+  width: 500px;
+  height: 100px;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #dcdcdc;
 }
 
 #back {
