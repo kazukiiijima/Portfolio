@@ -1,5 +1,6 @@
 <html>
 	<body>
+		<div id="wrapper">
 			<div class="post_create">
 				<%= form_with model: @post, url: posts_path, local: true do |f| %>
 					<% if @post.errors.any? %> 
@@ -17,7 +18,7 @@
 					</h2>
 					<%= f.attachment_field :image %><br>
 					<h2 class="post_new_item">
-					<%= f.label :title, '動画タイトル' %><br>
+					<%= f.label :title, '映画タイトル' %><br>
 					</h2>
 					<%= f.text_field :title %><br>
 					<h2 class="post_new_item">
@@ -31,5 +32,9 @@
 					<%= f.submit '投稿する' %>
 				<% end %>
 			</div>
+			<footer>
+		      ©︎2021 Kazuki Iijima Portoforio
+		    </footer>
+		</div>
 	</body>
 </html>

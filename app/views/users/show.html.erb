@@ -1,101 +1,107 @@
 <html>
 	<body>
-   		<div class="main clearfix">
-   			<div class="massage">
-				<% if flash[:notice] %>
-	    			 <p id="notice">
-	       				<%= flash[:notice] %>
-	     			</p>
-	   			<% end %>
-	   		</div>
-   			<div class="user-sidebar">
-   					<div class="user-sidebar-title">
-   						ユーザー情報
-   					</div>
-   					<div class="user-sidebar-item">
-	   						<%= attachment_image_tag @user, :image, :fill, 171, 171, fallback: "a.png"  %><br>
-	   					<div class="user_item_title">
-	   						ユーザー名
+		<div id="wrapper">
+	   		<div class="main clearfix">
+	   			<div class="massage">
+					<% if flash[:notice] %>
+		    			 <p id="notice">
+		       				<%= flash[:notice] %>
+		     			</p>
+		   			<% end %>
+		   		</div>
+	   			<div class="user-sidebar">
+	   					<div class="user-sidebar-title">
+	   						ユーザー情報
 	   					</div>
-	   					<%= @user.name %>
-	   					<div class="user_item_title">
-	   						プロフィール
+	   					<div class="user-sidebar-item">
+		   						<%= attachment_image_tag @user, :image, :fill, 171, 171, fallback: "a.png"  %><br>
+		   					<div class="user_item_title">
+		   						ユーザー名
+		   					</div>
+		   					<%= @user.name %>
+		   					<div class="user_item_title">
+		   						プロフィール
+		   					</div>
+		   					<%= @user.profile.truncate(20) %><br>
+		   					<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %>
+		   				</div>
+	   			</div>
+	   			<div class="post-past">
+	   				<h2 class="post_title">
+	   					過去の投稿
+	   				</h2>
+	   				<% @posts.each do |post| %>
+	   					<div class="post_item">
+	   						<%= attachment_image_tag post, :image, :fill, 300, 200, fallback: "a.png" %><br>
+	   						<div class="post_item_title">
+	   							映画タイトル
+	   						</div>
+	   						<%= post.title %><br>
+	   						<div class="post_item_title">
+	   							ここがオススメ!
+	   						</div>
+	   						<%= post.body.truncate(15) %><br>
+	   						<div class="post_item_title">
+	   							<i class="far fa-thumbs-up"></i>
+								<%= post.favorited_users.count %>
+								<i class="far fa-comment"></i>
+								<%= post.comments.count %>
+							</div>
+							<div class="post_item_title">
+								<%= button_to "詳しく見る", post_path(post.id), method: :get %>
+								<% if post.user == current_user %>
+									<%= button_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %>
+								<% end %>
+							</div>
 	   					</div>
-	   					<%= @user.profile %><br>
-	   					<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %>
-	   				</div>
-   			</div>
-   			<div class="post-past">
-   				<h2 class="post_title">
-   					過去の投稿
-   				</h2>
-   				<% @posts.each do |post| %>
-   					<div class="post_item">
-   						<%= attachment_image_tag post, :image, :fill, 300, 200, fallback: "a.png" %><br>
-   						<div class="post_item_title">
-   							動画タイトル
-   						</div>
-   						<%= post.title %><br>
-   						<div class="post_item_title">
-   							ここがオススメ!
-   						</div>
-   						<%= post.body.truncate(15) %><br>
-   						<div class="post_item_title">
-   							<i class="far fa-thumbs-up"></i>
-							<%= post.favorited_users.count %>
-							<i class="far fa-comment"></i>
-							<%= post.comments.count %>
-						</div>
-						<div class="post_item_title">
-							<%= button_to "詳しく見る", post_path(post.id), method: :get %>
-							<% if post.user == current_user %>
-								<%= button_to "削除する", post_path(post.id), method: :delete ,"data-confirm" => "本当に消しますか?" %>
-							<% end %>
-						</div>
-   					</div>
-   				<% end %>
-   				<div class= "post-page">
-					<%= paginate @posts %>
-				</div>
-			</div>
-			<div class="post-favorite">
-				<h2 class="post_title">
-					いいねした投稿
-				</h2>
-				<% @users.each do |post| %>
-					<div class="post_item">
-						<%= attachment_image_tag post, :image, :fill, 300, 200, fallback: "a.png" %><br>
-						<div class="post_item_title">
-							動画タイトル
-						</div>
-						<%= post.title %><br>
-						<div class="post_item_title">
-							ここがオススメ!
-						</div>
-						<%= post.body.truncate(15) %><br>
-						<div class="post_item_title">
-							投稿ユーザー
-						</div>
-						<%= post.user.name %><br>
-						<div class="post_item_title">
-							<i class="far fa-thumbs-up"></i>
-							<%= post.favorited_users.count %>
-							<i class="far fa-comment"></i>
-							<%= post.comments.count %><br>
-						</div>
-						<div class="post_item_title">
-							<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
-						</div>
+	   				<% end %>
+	   				<div class= "post-page">
+						<%= paginate @posts %>
 					</div>
-				<% end %>
-				<div class= "post-page">
-					<%= paginate @posts %>
 				</div>
-			</div>
-   		</div>
-		<span id="back">
-			<a href="#">
-			<img src="/images/arrow.png">
-		</span>
+				<div class="post-favorite">
+					<h2 class="post_title">
+						いいねした投稿
+					</h2>
+					<% @users.each do |post| %>
+						<div class="post_item">
+							<%= attachment_image_tag post, :image, :fill, 300, 200, fallback: "a.png" %><br>
+							<div class="post_item_title">
+								映画タイトル
+							</div>
+							<%= post.title %><br>
+							<div class="post_item_title">
+								ここがオススメ!
+							</div>
+							<%= post.body.truncate(15) %><br>
+							<div class="post_item_title">
+								投稿ユーザー
+							</div>
+							<%= post.user.name %><br>
+							<div class="post_item_title">
+								<i class="far fa-thumbs-up"></i>
+								<%= post.favorited_users.count %>
+								<i class="far fa-comment"></i>
+								<%= post.comments.count %><br>
+							</div>
+							<div class="post_item_title">
+								<%= button_to "詳しく見る", post_path(post.id), method: :get %><br>
+							</div>
+						</div>
+					<% end %>
+					<div class= "post-page">
+						<%= paginate @posts %>
+					</div>
+				</div>
+	   		</div>
+			<span id="back">
+				<a href="#">
+					<img src="/images/arrow.png">
+				</a>
+			</span>
+			<footer>
+		      ©︎2021 Kazuki Iijima Portoforio
+		    </footer>
+		</div>
 	</body>
 </html>

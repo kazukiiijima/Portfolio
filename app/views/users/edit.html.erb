@@ -1,32 +1,26 @@
 <html>
 	<body>
-		<div>
-			<div class="user_edit_main clearfix">
-				<div class="user_edit_user">
-					<%= form_with model: @user, url: user_path, local: true do |f| %>
-						<h2 class="user_edit_user_title">
-							画像
-						</h2>
-						<div>
-							<%= f.attachment_field :image %><br>
-						</div>
-						<h2 class="user_edit_user_title">
-							ユーザー名
-						</h2>
-						<div class="user_edit_user_item">
-							<%= f.text_field :name %><br>
-						</div>
-						<h2 class="user_edit_user_title">
-							プロフィール
-						</h2>
-						<div class="user_edit_user_item">
-							<%= f.text_area :profile %><br>
-						</div>
+		<div id="wrapper">
+			<div class="post_create">
+				<%= form_with model: @user, url: user_path, local: true do |f| %>
+					<h2 class="post_new_item">
+						画像
+					</h2>
+						<%= f.attachment_field :image %><br>
+					<h2 class="post_new_item">
+						ユーザー名
+					</h2>
+						<%= f.text_field :name %><br>
+					<h2 class="post_new_item">
+						プロフィール
+					</h2>
+						<%= f.text_area :profile %><br>
 					<%= f.submit '変更を保存' %>
-					<% end %>
-				</div>
+				<% end %>
 			</div>
-
+			<footer>
+		      ©︎2021 Kazuki Iijima Portoforio
+		    </footer>
 		</div>
 	</body>
 </html>
