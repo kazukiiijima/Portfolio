@@ -169,7 +169,8 @@ body {
 }
 
 .post_item_title {
-  background-color: #cd5c5c;
+  background-color: #696969;
+  color: white;
 }
 
 .post-page {
@@ -232,7 +233,8 @@ body {
   padding: 10px;
   margin: 20px;
   text-align: center;
-  background-color: white;
+  font-size: 20px;
+  background-color: rgba(220,220,220,0.8);
   font-family: 'M PLUS 1p', sans-serif;
 }
 
@@ -292,7 +294,7 @@ body {
 }
 
 .post_create {
-  height: 650px;
+  height: 700px;
   margin: 0 auto;
   text-align: center;
   font-family: 'M PLUS 1p', sans-serif;
@@ -339,6 +341,16 @@ input[type="text"] {
 textarea {
   width: 70%;
   height: 100px;
+}
+
+input[type="email"] {
+  width: 70%;
+  height: 40px;
+}
+
+input[type="password"] {
+  width: 70%;
+  height: 40px;
 }
 
 .footer {

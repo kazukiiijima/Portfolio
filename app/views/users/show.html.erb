@@ -14,16 +14,12 @@
 	   						ユーザー情報
 	   					</div>
 	   					<div class="user-sidebar-item">
-		   						<%= attachment_image_tag @user, :image, :fill, 171, 171, fallback: "a.png"  %><br>
+		   						<%= attachment_image_tag @user, :image, :fill, 171, 171, fallback: "b.png"  %><br>
 		   					<div class="user_item_title">
 		   						ユーザー名
 		   					</div>
 		   					<%= @user.name %>
-		   					<div class="user_item_title">
-		   						プロフィール
-		   					</div>
-		   					<%= @user.profile.truncate(20) %><br>
-		   					<%= button_to "プロフィールを編集", edit_user_path(@user.id), method: :get %>
+		   					<%= button_to "情報を編集", edit_user_path(@user.id), method: :get %>
 		   				</div>
 	   			</div>
 	   			<div class="post-past">
