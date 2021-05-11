@@ -1,5 +1,6 @@
 <html>
 	<body>
+		<div id="wrapper">
 			<div class="main clearfix">
 				<div class="massage">
 					<% if flash[:notice] %>
@@ -16,6 +17,17 @@
 						<div class="sidebar_item">
 							<% @genres.each do |genre| %>
 								<%= link_to genre.name, posts_path(genre: genre.id) %><br>
+							<% end %>
+						</div>
+					</div>
+					<div class="sidebar_box">
+						<h2 class="sidebar_title">
+							動画タイトルで検索
+						</h2>
+						<div class="sidebar_item">
+							<%= form_tag(posts_path, method: :get) do %>
+							 	<%= text_field_tag :search %>
+							 	<%= submit_tag '検索', name: nil %>
 							<% end %>
 						</div>
 					</div>
@@ -86,12 +98,14 @@
 					</div>
 				</div>
 			</div>
+			<footer>
+		      ©︎2021 Kazuki Iijima Portoforio
+		    </footer>
 			<span id="back">
 		      <a href="#">
 		        <img src="/images/arrow.png">
 		      </a>
 		    </span>
-
 		</div>
 	</body>
 

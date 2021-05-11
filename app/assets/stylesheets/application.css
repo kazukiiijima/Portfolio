@@ -28,6 +28,12 @@
   clear: both;
 }
 
+#wrapper {
+  width: 100%;
+  position:relative;
+  min-height: 100%;
+}
+
 header {
   width: 100%;
   background-color: white;
@@ -38,7 +44,7 @@ header {
 }
 
 .headline {
-  margin-left: 5px;
+  margin-left: 250px;
 }
 
 .nav-list-item {
@@ -46,6 +52,7 @@ header {
   font-size: 20px;
   list-style: none;
   display: inline-block;
+  color: white;
 }
 
 body {
@@ -60,8 +67,14 @@ body {
 
 .top_text {
   width: 60%;
+  height: 40%;
   padding: 50px 0;
-  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
   text-align: center;
   font-size: 25PX;
   background-color: rgba(225,225,225,0.8);
@@ -74,9 +87,9 @@ body {
 }
 
 .sidebar {
-  width: 15%;
-  margin-left: 2%;
-  height: 500px;
+  width: 16%;
+  margin-left: 1%;
+  height: auto;
   float: left;
   background-color: rgba(105,105,105,0.5);
 }
@@ -105,7 +118,7 @@ body {
 .post-rank {
   width: 80%;
   margin-left: 1%;
-  margin-right: 2%;
+  margin-right: 1%;
   height:600px;
   float: left;
 }
@@ -113,7 +126,7 @@ body {
 .post-new {
   width: 80%;
   margin-left: 18%;
-  margin-right: 2%;
+  margin-right: 1%;
   height: 1000px;
   float: left;
 }
@@ -156,7 +169,8 @@ body {
 }
 
 .post_item_title {
-  background-color: #cd5c5c;
+  background-color: #696969;
+  color: white;
 }
 
 .post-page {
@@ -168,7 +182,7 @@ body {
 .user-sidebar {
   width: 15%;
   margin-left: 2%;
-  height: 400px;
+  height: 420px;
   float: left;
   background-color: rgba(105,105,105,0.5);
 }
@@ -219,7 +233,8 @@ body {
   padding: 10px;
   margin: 20px;
   text-align: center;
-  background-color: white;
+  font-size: 20px;
+  background-color: rgba(220,220,220,0.8);
   font-family: 'M PLUS 1p', sans-serif;
 }
 
@@ -279,15 +294,15 @@ body {
 }
 
 .post_create {
-  height: 650px;
+  height: 700px;
   margin: 0 auto;
   text-align: center;
   font-family: 'M PLUS 1p', sans-serif;
-    background-image: url("img1.png")
+  background-image: url("img1.png")
 }
 
 .post_new_item {
-  width: 50%;
+  width: 70%;
   margin: 10px auto;
   text-align: center;
   background-color: rgba(105,105,105,0.5);
@@ -308,31 +323,6 @@ body {
   text-align: center;
 }
 
-.user_edit_main {
-  height: 650px;
-  padding: 15px 0;
-  margin: 0 auto;
-  font-family: 'M PLUS 1p', sans-serif;
-   background-image: url("img1.png")
-}
-
-.user_edit_user {
-  text-align: center;
-  padding: 10px;
-}
-
-.user_edit_user_title {
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
-  background-color: rgba(105,105,105,0.5);
-  color: white;
-}
-
-.user_edit_user_item {
-  padding: 10px;
-}
-
 .botton {
   padding: 5px;
   float: left;
@@ -344,20 +334,30 @@ body {
 }
 
 input[type="text"] {
-  width: 500px;
+  width: 70%;
   height: 40px;
 }
 
 textarea {
-  width: 500px;
+  width: 70%;
   height: 100px;
 }
 
-footer {
-  width: 100%;
+input[type="email"] {
+  width: 70%;
+  height: 40px;
+}
+
+input[type="password"] {
+  width: 70%;
+  height: 40px;
+}
+
+.footer {
+  width:100%;
+  height: 100px;
   position: absolute;
   bottom: 0;
-  background-color: #dcdcdc;
 }
 
 #back {
@@ -368,4 +368,10 @@ footer {
 
 #back img {
   width: 50px;
+}
+
+a:-webkit-any-link {
+ color: white;
+ text-decoration: none;
+ font-family: 'M PLUS 1p', sans-serif;
 }

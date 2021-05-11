@@ -27,3 +27,10 @@ $(function() {
   });
 
 });
+
+$(function() {
+	$('my-link').mouseover(function(){
+		$('my-link').css({'background-color': '#0000FF'});
+	});
+});
+
