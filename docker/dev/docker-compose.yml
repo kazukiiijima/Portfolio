@@ -1,0 +1,25 @@
+version: '2'
+services:
+  app:
+    container_name: share-app
+    build: ./app/
+    image: share-app
+    ports:
+      - '80:80'
+    volumes:
+      - ~/git/Portfolio:/var/www/app/
+    tty: true
+    depends_on:
+      - db
+  db:
+    container_name: share-db
+    build: ./mysql/
+    image: share-db
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: share
+      MYSQL_ROOT_PASSWORD: password
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./mysql/db_data:/var/lib/mysql
