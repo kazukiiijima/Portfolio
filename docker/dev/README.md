@@ -9,8 +9,8 @@
 - リポジトリをclone
 
 ```
-mkdir -p ~/git/github
-cd ~/git/github
+mkdir -p ~/git/
+cd ~/git/
 git@github.com:kazukiiijima/Portfolio.git
 ```
 
