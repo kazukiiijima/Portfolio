@@ -35,7 +35,7 @@ RUN n 12.18.4
 RUN groupadd nginx
 RUN useradd -g nginx nginx
 ADD nginx/nginx.conf /etc/nginx/nginx.conf
-ADD nginx/dev.share-me.work.conf /etc/nginx/conf.d/dev.share-me.work.conf
+ADD nginx/dev.share-movie.work.conf /etc/nginx/conf.d/dev.share-movie.work.conf
 
 ## supervisor
 RUN mkdir -p /var/log/supervisor
