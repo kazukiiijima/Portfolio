@@ -40,9 +40,10 @@ rails db:migrate
 /usr/bin/supervisorctl restart app
 ```
 
-- Access
+- アクセス確認
 
 
+![スクリーンショット 2021-05-27 21 51 39](https://user-images.githubusercontent.com/5633085/119829318-149e7400-bf36-11eb-8456-2321879a3f10.jpg)
 
 
 http://dev.share-movie.work/
